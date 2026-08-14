@@ -9,10 +9,10 @@ Route::get('/', function () {
 
 Route::get('/run-migrate', function () {
     try {
-        Artisan::call('migrate --force');
-        return "Database migrated successfully!";
+        Artisan::call('migrate:fresh --force');
+        return "Database wiped and migrated successfully! Now your site is ready.";
     } catch (\Exception $e) {
-        return "Error: " . $e->getMessage();
+        return "Migration Error: " . $e->getMessage();
     }
 });
 
