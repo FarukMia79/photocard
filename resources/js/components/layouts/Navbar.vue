@@ -27,7 +27,7 @@
                 <!-- Right Side Icons -->
                 <div class="flex items-center gap-4">
                     <button
-                        class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-full text-sm font-medium transition shadow-md">
+                        class="bg-[#2B1B59] hover:bg-[#1a0f3d] text-white px-4 py-2 rounded-full text-sm font-medium transition shadow-md">
                         + Upload
                     </button>
                     <div class="flex items-center">
