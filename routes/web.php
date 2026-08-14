@@ -8,8 +8,12 @@ Route::get('/', function () {
 });
 
 Route::get('/run-migrate', function () {
-    Artisan::call('migrate --force');
-    return "Database migrated successfully!";
+    try {
+        Artisan::call('migrate --force');
+        return "Database migrated successfully!";
+    } catch (\Exception $e) {
+        return "Error: " . $e->getMessage();
+    }
 });
 
 
