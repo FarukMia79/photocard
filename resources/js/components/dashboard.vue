@@ -11,11 +11,10 @@
                         PhotoCard Studio v2.0
                     </span>
                     <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">
-                        স্বাগতম, ক্রিয়েটর! 👋
+                        Welcome, Creator! <i class="fa-regular fa-hand"></i>
                     </h1>
                     <p class="text-indigo-200 text-sm md:text-base">
-                        আজকে কোন ফেসবুক নিউজ ফটো কার্ড বা ব্যানার ডিজাইন করতে চান? আপনার পছন্দমতো টেমপ্লেট নির্বাচন করে
-                        এখনই এডিট শুরু করুন।
+                        Want to design a Facebook News photo card or banner today? Choose a template of your choice and start editing now.
                     </p>
                     <div class="pt-2 flex flex-wrap gap-3">
                         <router-link :to="{ name: 'Design_2' }"
@@ -24,11 +23,11 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M12 4v16m8-8H4"></path>
                             </svg>
-                            নতুন ডিজাইন শুরু করুন
+                            Start new design
                         </router-link>
                         <a href="#templates"
                             class="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl backdrop-blur-md border border-white/20 transition-all text-sm">
-                            সব টেমপ্লেট দেখুন
+                            See all templates
                         </a>
                     </div>
                 </div>
@@ -47,10 +46,10 @@
                 <div
                     class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-between hover:shadow-md transition">
                     <div>
-                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">মোট তৈরি কার্ড</p>
-                        <h3 class="text-2xl font-black text-gray-900 mt-1">৪৮ টি</h3>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Total cards created</p>
+                        <h3 class="text-2xl font-black text-gray-900 mt-1">48</h3>
                         <span class="text-[11px] text-emerald-600 font-semibold flex items-center gap-1 mt-1">
-                            ↑ ১২% বৃদ্ধি পেয়েছে
+                            ↑ 12% increase
                         </span>
                     </div>
                     <div class="w-12 h-12 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600">
@@ -66,10 +65,10 @@
                 <div
                     class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-between hover:shadow-md transition">
                     <div>
-                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">মোট ডাউনলোড</p>
-                        <h3 class="text-2xl font-black text-gray-900 mt-1">১৬২ টি</h3>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Total downloads</p>
+                        <h3 class="text-2xl font-black text-gray-900 mt-1">162</h3>
                         <span class="text-[11px] text-emerald-600 font-semibold flex items-center gap-1 mt-1">
-                            ↑ ২৫% এই সপ্তাহে
+                            ↑ 25% this week
                         </span>
                     </div>
                     <div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600">
@@ -84,10 +83,10 @@
                 <div
                     class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-between hover:shadow-md transition">
                     <div>
-                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">ফেসবুক টেমপ্লেট</p>
-                        <h3 class="text-2xl font-black text-gray-900 mt-1">৬ টি</h3>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Facebook templates</p>
+                        <h3 class="text-2xl font-black text-gray-900 mt-1">6</h3>
                         <span class="text-[11px] text-gray-400 font-medium mt-1 inline-block">
-                            রেডি টু ইউজ
+                            Ready to use
                         </span>
                     </div>
                     <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600">
@@ -103,10 +102,10 @@
                 <div
                     class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-between hover:shadow-md transition">
                     <div>
-                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">প্রিয় ডিজাইন</p>
-                        <h3 class="text-2xl font-black text-gray-900 mt-1">ডিজাইন ২</h3>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Popular design</p>
+                        <h3 class="text-2xl font-black text-gray-900 mt-1">Design 2</h3>
                         <span class="text-[11px] text-indigo-600 font-semibold mt-1 inline-block">
-                            সবচেয়ে জনপ্রিয়
+                            Most popular
                         </span>
                     </div>
                     <div class="w-12 h-12 bg-pink-50 rounded-2xl flex items-center justify-center text-pink-600">
@@ -123,10 +122,10 @@
             <div id="templates" class="space-y-4">
                 <div class="flex items-center justify-between">
                     <div>
-                        <h2 class="text-xl font-bold text-gray-900">জনপ্রিয় ফটো কার্ড টেমপ্লেটসমূহ</h2>
-                        <p class="text-xs text-gray-500">আপনার পছন্দের টেমপ্লেটে ক্লিক করে তাৎক্ষণিক এডিট শুরু করুন</p>
+                        <h2 class="text-xl font-bold text-gray-900">Popular photo card templates</h2>
+                        <p class="text-xs text-gray-500">Click on your favorite template to start editing instantly</p>
                     </div>
-                    <span class="text-xs font-bold text-indigo-600 hover:underline cursor-pointer">সব দেখুন (৬) →</span>
+                    <span class="text-xs font-bold text-indigo-600 hover:underline cursor-pointer">See all (6) →</span>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -159,14 +158,14 @@
                                     <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1">
-                                    টিকা ও ব্যাভলড ইমেজ ফ্রেম সহ প্রফেশনাল নিউজ ফটো কার্ড এডিটর।
+                                    Professional news photo card editor with tick and bordered image frame.
                                 </p>
                             </div>
                         </div>
                         <div class="px-5 pb-5 pt-0">
                             <router-link :to="{ name: 'Design_1' }"
                                 class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-indigo-200 transition duration-200">
-                                <span>এডিট করুন (Design 1)</span>
+                                <span>Edit (Design 1)</span>
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -201,14 +200,14 @@
                                     <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1">
-                                    টিকা ও ব্যাভলড ইমেজ ফ্রেম সহ প্রফেশনাল নিউজ ফটো কার্ড এডিটর।
+                                    Professional news photo card editor with tick and bordered image frame.
                                 </p>
                             </div>
                         </div>
                         <div class="px-5 pb-5 pt-0">
                             <router-link :to="{ name: 'Design_2' }"
                                 class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-indigo-200 transition duration-200">
-                                <span>এডিট করুন (Design 2)</span>
+                                <span>Edit (Design 2)</span>
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -243,14 +242,14 @@
                                     <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1">
-                                    টিকা ও ব্যাভলড ইমেজ ফ্রেম সহ প্রফেশনাল নিউজ ফটো কার্ড এডিটর।
+                                    Professional news photo card editor with tick and bordered image frame.
                                 </p>
                             </div>
                         </div>
                         <div class="px-5 pb-5 pt-0">
                             <router-link :to="{ name: 'Design_2' }"
                                 class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-indigo-200 transition duration-200">
-                                <span>এডিট করুন (Design 2)</span>
+                                <span>Edit (Design 2)</span>
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -268,10 +267,10 @@
             <div class="bg-white rounded-3xl border border-gray-100 shadow-sm p-6 space-y-4">
                 <div class="flex items-center justify-between">
                     <div>
-                        <h2 class="text-lg font-bold text-gray-900">সাম্প্রতিক তৈরি করা কার্ডসমূহ</h2>
-                        <p class="text-xs text-gray-500">আপনার সাম্প্রতিক ডাউনলোড ও এডিট করা কার্ডের তালিকা</p>
+                        <h2 class="text-lg font-bold text-gray-900">Recently created cards</h2>
+                        <p class="text-xs text-gray-500">Your recent download and edit card list</p>
                     </div>
-                    <button class="text-xs font-bold text-gray-500 hover:text-indigo-600">রিলোড করুন ↻</button>
+                    <button class="text-xs font-bold text-gray-500 hover:text-indigo-600">Reload ↻</button>
                 </div>
 
                 <div class="overflow-x-auto">
@@ -357,12 +356,12 @@ export default {
     name: 'Dashboard',
     data() {
         return {
-            // প্রয়োজন হলে ডায়নামিক ডাটা পাস করা যাবে
+            // 
         }
     }
 }
 </script>
 
 <style scoped>
-/* অতিরিক্ত কোনো কাস্টম সিএসএস লাগলে এখানে যোগ করতে পারেন */
+
 </style>
