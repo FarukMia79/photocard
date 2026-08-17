@@ -28,7 +28,7 @@
     "src": "public/uploads/image/cards/design-2.png"
   },
   "resources/css/app.css": {
-    "file": "assets/app-HMaQkPy7.css",
+    "file": "assets/app-CojbxnK4.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -37,7 +37,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-CDnRLpBs.js",
+    "file": "assets/app-BSZsPIeT.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -48,11 +48,11 @@
       "resources/js/components/pages/PhotoCard/facebook/Design_3.vue"
     ],
     "css": [
-      "assets/app-qZ2c3DdW.css"
+      "assets/app-264O8CC8.css"
     ]
   },
   "resources/js/components/dashboard.vue": {
-    "file": "assets/dashboard-2uiugTlO.js",
+    "file": "assets/dashboard-Bwx3tTHn.js",
     "name": "dashboard",
     "src": "resources/js/components/dashboard.vue",
     "isDynamicEntry": true,
@@ -65,7 +65,7 @@
     ]
   },
   "resources/js/components/pages/PhotoCard/facebook/Design2.vue": {
-    "file": "assets/Design2-CNMDN7Ow.js",
+    "file": "assets/Design2-C2oFZwS9.js",
     "name": "Design2",
     "src": "resources/js/components/pages/PhotoCard/facebook/Design2.vue",
     "isDynamicEntry": true,
@@ -78,7 +78,7 @@
     ]
   },
   "resources/js/components/pages/PhotoCard/facebook/Design_1.vue": {
-    "file": "assets/Design_1-DMgTgS6N.js",
+    "file": "assets/Design_1-DEm8nX2M.js",
     "name": "Design_1",
     "src": "resources/js/components/pages/PhotoCard/facebook/Design_1.vue",
     "isDynamicEntry": true,
@@ -91,7 +91,7 @@
     ]
   },
   "resources/js/components/pages/PhotoCard/facebook/Design_3.vue": {
-    "file": "assets/Design_3-BV3NHwhb.js",
+    "file": "assets/Design_3-GMaGOLnY.js",
     "name": "Design_3",
     "src": "resources/js/components/pages/PhotoCard/facebook/Design_3.vue",
     "isDynamicEntry": true,
