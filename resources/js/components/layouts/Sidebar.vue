@@ -1,70 +1,124 @@
 <template>
     <aside
-        class="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 w-64 h-full pt-16 bg-white border-r border-gray-100 transition-all duration-300">
-        <div class="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
-            <div class="flex-1 px-3 space-y-1">
+        class="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 w-64 h-full pt-16 bg-white border-r border-gray-100 transition-all duration-300 font-['Hind_Siliguri']">
+        
+        <div class="flex flex-col flex-1 pt-4 pb-6 overflow-y-auto custom-scrollbar">
+            <div class="flex-1 px-3 space-y-6">
 
-                <p class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Menu</p>
+                <!-- MAIN MENU -->
+                <div>
+                    <p class="px-3 text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-2">Menu</p>
 
-                <router-link to="/dashboard"
-                    class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-indigo-50 hover:text-indigo-600 group transition">
-                    <span class="ml-3 font-medium text-sm">Feed</span>
-                </router-link>
-
-                <div class="pt-4 mt-4 border-t border-gray-100">
-                    <p class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Categories</p>
-                    
-                    <!-- facebook menu -->
-                    <div>
-                        <button 
-                            @click="isFacebookOpen = !isFacebookOpen"
-                            class="flex items-center justify-between w-full p-3 text-gray-600 rounded-xl hover:bg-gray-50 transition"
-                        >
-                            <span class="ml-3 font-medium text-sm">Facebook</span>
-                            <svg :class="{'rotate-180': isFacebookOpen}" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-
-                        <!-- facebook sub-menu -->
-                        <div v-show="isFacebookOpen" class="mt-1 ml-4 space-y-1 border-l-2 border-gray-50">
-                            
-                            <!-- news photo card dropdown -->
-                            <div>
-                                <button 
-                                    @click="isNewsCardOpen = !isNewsCardOpen"
-                                    class="flex items-center justify-between w-full p-2 text-sm text-gray-500 rounded-lg hover:bg-indigo-50 transition"
-                                >
-                                    <span class="ml-2">• News Photo Card</span>
-                                    <svg :class="{'rotate-180': isNewsCardOpen}" class="w-3 h-3 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                                </button>
-
-                                <!-- design list -->
-                                <div v-show="isNewsCardOpen" class="mt-1 ml-6 space-y-1 border-l border-gray-100">
-                                    <router-link :to="{ name: 'Design_1' }" class="block p-2 text-[12px] text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition">
-                                        —— Design 1
-                                    </router-link>
-                                    <router-link :to="{ name: 'Design_2' }" class="block p-2 text-[12px] text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition">
-                                        —— Design 2
-                                    </router-link>
-                                    <router-link :to="{ name: 'Design_3' }" class="block p-2 text-[12px] text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition">
-                                        —— Design 3
-                                    </router-link>
-                                </div>
-                            </div>
-
-                            <!-- facebook other menus -->
-                            <router-link to="#" class="block p-2 text-sm text-gray-500 rounded-lg hover:bg-indigo-50 transition">
-                                <span class="ml-2">• Profile Cover</span>
-                            </router-link>
-                            <router-link to="#" class="block p-2 text-sm text-gray-500 rounded-lg hover:bg-indigo-50 transition">
-                                <span class="ml-2">• Group Banner</span>
-                            </router-link>
-                        </div>
-                    </div>
-
-                    <!-- other category -->
-                    <router-link to="#" class="flex items-center p-3 text-gray-600 rounded-xl hover:bg-gray-50 transition">
-                        <span class="ml-3 font-medium text-sm"># Anime</span>
+                    <router-link :to="{ name: 'dashboard' }"
+                        exact-active-class="bg-indigo-50 text-indigo-600 font-semibold"
+                        class="flex items-center gap-3 px-3 py-2.5 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-gray-900 group transition-all duration-150">
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-indigo-600 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                        <span class="text-sm font-medium">Feed</span>
                     </router-link>
+                </div>
+
+                <!-- CATEGORIES SECTION -->
+                <div>
+                    <p class="px-3 text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-2">Categories</p>
+                    
+                    <div class="space-y-1">
+                        <!-- Facebook Accordion Menu -->
+                        <div>
+                            <button 
+                                @click="isFacebookOpen = !isFacebookOpen"
+                                :class="{'bg-gray-50 text-gray-900 font-semibold': isFacebookOpen}"
+                                class="flex items-center justify-between w-full px-3 py-2.5 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-gray-900 transition-all duration-150 group"
+                            >
+                                <div class="flex items-center gap-3">
+                                    <div class="w-5 h-5 rounded-md bg-blue-600 flex items-center justify-center text-white text-xs font-bold shadow-sm">
+                                        f
+                                    </div>
+                                    <span class="text-sm font-medium">Facebook</span>
+                                </div>
+                                <svg :class="{'rotate-180 text-indigo-600': isFacebookOpen}" class="w-4 h-4 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+
+                            <!-- Facebook Sub-menu -->
+                            <div v-show="isFacebookOpen" class="mt-1 ml-4 pl-3 space-y-1 border-l-2 border-gray-100 transition-all">
+                                
+                                <!-- News Photo Card Nested Dropdown -->
+                                <div>
+                                    <button 
+                                        @click="isNewsCardOpen = !isNewsCardOpen"
+                                        class="flex items-center justify-between w-full py-2 px-2.5 text-xs font-semibold text-gray-600 rounded-lg hover:bg-indigo-50/60 hover:text-indigo-600 transition"
+                                    >
+                                        <div class="flex items-center gap-2">
+                                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                                            </svg>
+                                            <span>News Photo Card</span>
+                                        </div>
+                                        <svg :class="{'rotate-180': isNewsCardOpen}" class="w-3 h-3 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                        </svg>
+                                    </button>
+
+                                    <!-- Design List Tree -->
+                                    <div v-show="isNewsCardOpen" class="mt-1 ml-3 pl-3 space-y-1 border-l border-indigo-100">
+                                        <router-link :to="{ name: 'Design_1' }" 
+                                            active-class="bg-indigo-50 text-indigo-600 font-bold"
+                                            class="flex items-center gap-2 py-1.5 px-2.5 text-[12px] text-gray-500 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+                                            <span>Design 1</span>
+                                        </router-link>
+
+                                        <router-link :to="{ name: 'Design_2' }" 
+                                            active-class="bg-indigo-50 text-indigo-600 font-bold"
+                                            class="flex items-center gap-2 py-1.5 px-2.5 text-[12px] text-gray-500 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+                                            <span>Design 2</span>
+                                        </router-link>
+
+                                        <router-link :to="{ name: 'Design_3' }" 
+                                            active-class="bg-indigo-50 text-indigo-600 font-bold"
+                                            class="flex items-center gap-2 py-1.5 px-2.5 text-[12px] text-gray-500 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+                                            <span>Design 3</span>
+                                        </router-link>
+                                    </div>
+                                </div>
+
+                                <!-- Facebook Other Links -->
+                                <router-link to="#" 
+                                    active-class="bg-indigo-50 text-indigo-600 font-semibold"
+                                    class="flex items-center gap-2 py-2 px-2.5 text-xs text-gray-600 rounded-lg hover:bg-indigo-50/60 hover:text-indigo-600 transition">
+                                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                    <span>Profile Cover</span>
+                                </router-link>
+
+                                <router-link to="#" 
+                                    active-class="bg-indigo-50 text-indigo-600 font-semibold"
+                                    class="flex items-center gap-2 py-2 px-2.5 text-xs text-gray-600 rounded-lg hover:bg-indigo-50/60 hover:text-indigo-600 transition">
+                                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    </svg>
+                                    <span>Group Banner</span>
+                                </router-link>
+                            </div>
+                        </div>
+
+                        <!-- Anime Category -->
+                        <router-link to="#" 
+                            active-class="bg-indigo-50 text-indigo-600 font-semibold"
+                            class="flex items-center justify-between px-3 py-2.5 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-gray-900 transition-all duration-150 group">
+                            <div class="flex items-center gap-3">
+                                <span class="text-indigo-500 font-bold text-sm">#</span>
+                                <span class="text-sm font-medium">Youtube</span>
+                            </div>
+                            <span class="text-[10px] bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded-full font-bold">New</span>
+                        </router-link>
+                    </div>
                 </div>
 
             </div>
@@ -77,8 +131,8 @@ export default {
     name: 'Sidebar',
     data() {
         return {
-            isFacebookOpen: false,    // facebook section control
-            isNewsCardOpen: false      // news card section control (Nested)
+            isFacebookOpen: true,
+            isNewsCardOpen: true  
         };
     }
 }
@@ -88,5 +142,16 @@ export default {
 .rotate-180 {
     transform: rotate(180deg);
 }
-/* if bengali font available, set font family here */
+
+/* কাস্টম স্ক্রলবার স্টাইলিং */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #e2e8f0;
+    border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #cbd5e1;
+}
 </style>
