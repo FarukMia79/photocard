@@ -8,9 +8,9 @@ Route::get('/run-migrate', function () {
     try {
         DB::statement('DROP SCHEMA public CASCADE;');
         DB::statement('CREATE SCHEMA public;');
-        
-        Artisan::call('migrate --force');
-        
+
+        Artisan::call('migrate', ['--force' => true]);
+
         return "Database wiped and migrated successfully! Now your photocard site is ready.";
     } catch (\Exception $e) {
         return "Migration Error: " . $e->getMessage();
