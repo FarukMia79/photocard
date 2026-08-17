@@ -11,9 +11,22 @@ Route::get('/run-migrate', function () {
 
         Artisan::call('migrate', ['--force' => true]);
 
-        return "Database wiped and migrated successfully! Now your photocard site is ready.";
-    } catch (\Exception $e) {
-        return "Migration Error: " . $e->getMessage();
+        return nl2br(
+            "Migration Output:\n\n" .
+            Artisan::output()
+        );
+
+    } catch (\Throwable $e) {
+        return nl2br(
+            "Migration Error:\n\n" .
+            $e->getMessage() .
+            "\n\nFile: " .
+            $e->getFile() .
+            "\nLine: " .
+            $e->getLine() .
+            "\n\nTrace:\n" .
+            $e->getTraceAsString()
+        );
     }
 });
 
