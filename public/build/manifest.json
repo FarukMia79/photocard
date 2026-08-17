@@ -19,8 +19,16 @@
     "file": "assets/fa-v4compatibility-CErXDOsT.woff2",
     "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2"
   },
+  "public/uploads/image/cards/design-1.png": {
+    "file": "assets/design-1-DINiWiJa.png",
+    "src": "public/uploads/image/cards/design-1.png"
+  },
+  "public/uploads/image/cards/design-2.png": {
+    "file": "assets/design-2-DSKQuA1k.png",
+    "src": "public/uploads/image/cards/design-2.png"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-D6t7NQ9c.css",
+    "file": "assets/app-B_2Hy0Vk.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -29,7 +37,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-pni5-cK4.js",
+    "file": "assets/app-DdqSviSp.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -40,20 +48,27 @@
       "resources/js/components/pages/PhotoCard/facebook/Design_3.vue"
     ],
     "css": [
-      "assets/app-DnVhyuPY.css"
+      "assets/app-qZ2c3DdW.css"
     ]
   },
   "resources/js/components/dashboard.vue": {
-    "file": "assets/dashboard-CkZnYxuw.js",
+    "file": "assets/dashboard-DeYTtxpg.js",
     "name": "dashboard",
     "src": "resources/js/components/dashboard.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js"
+    ],
+    "css": [
+      "assets/dashboard-tn0RQdqM.css"
+    ],
+    "assets": [
+      "assets/design-1-DINiWiJa.png",
+      "assets/design-2-DSKQuA1k.png"
     ]
   },
   "resources/js/components/pages/PhotoCard/facebook/Design2.vue": {
-    "file": "assets/Design2-4zcNI7Oh.js",
+    "file": "assets/Design2-C0-G4OTW.js",
     "name": "Design2",
     "src": "resources/js/components/pages/PhotoCard/facebook/Design2.vue",
     "isDynamicEntry": true,
@@ -66,7 +81,7 @@
     ]
   },
   "resources/js/components/pages/PhotoCard/facebook/Design_1.vue": {
-    "file": "assets/Design_1-D98gToad.js",
+    "file": "assets/Design_1-DnNk8WIL.js",
     "name": "Design_1",
     "src": "resources/js/components/pages/PhotoCard/facebook/Design_1.vue",
     "isDynamicEntry": true,
@@ -79,7 +94,7 @@
     ]
   },
   "resources/js/components/pages/PhotoCard/facebook/Design_3.vue": {
-    "file": "assets/Design_3-96Vo5Gz6.js",
+    "file": "assets/Design_3-05FiUC4N.js",
     "name": "Design_3",
     "src": "resources/js/components/pages/PhotoCard/facebook/Design_3.vue",
     "isDynamicEntry": true,
