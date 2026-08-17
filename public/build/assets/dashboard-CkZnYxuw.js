@@ -1,0 +1,1 @@
+import{_ as a,c as o,a as r,o as s}from"./app-pni5-cK4.js";const n={};function t(c,e){return s(),o("div",null,[...e[0]||(e[0]=[r("h1",null,"Dashboard",-1)])])}const l=a(n,[["render",t]]);export{l as default};

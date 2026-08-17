@@ -1,0 +1,93 @@
+{
+  "_html2canvas.esm-k0ITeQhV.js": {
+    "file": "assets/html2canvas.esm-k0ITeQhV.js",
+    "name": "html2canvas.esm"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2": {
+    "file": "assets/fa-brands-400-Bs6tcqqs.woff2",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2": {
+    "file": "assets/fa-regular-400-DRN8N0d1.woff2",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2": {
+    "file": "assets/fa-solid-900-IAB4Droh.woff2",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2": {
+    "file": "assets/fa-v4compatibility-CErXDOsT.woff2",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-D6t7NQ9c.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "name": "app",
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-pni5-cK4.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/components/dashboard.vue",
+      "resources/js/components/pages/PhotoCard/facebook/Design_1.vue",
+      "resources/js/components/pages/PhotoCard/facebook/Design2.vue",
+      "resources/js/components/pages/PhotoCard/facebook/Design_3.vue"
+    ],
+    "css": [
+      "assets/app-DnVhyuPY.css"
+    ]
+  },
+  "resources/js/components/dashboard.vue": {
+    "file": "assets/dashboard-CkZnYxuw.js",
+    "name": "dashboard",
+    "src": "resources/js/components/dashboard.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/components/pages/PhotoCard/facebook/Design2.vue": {
+    "file": "assets/Design2-4zcNI7Oh.js",
+    "name": "Design2",
+    "src": "resources/js/components/pages/PhotoCard/facebook/Design2.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_html2canvas.esm-k0ITeQhV.js",
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/Design2-Bw_QwNpg.css"
+    ]
+  },
+  "resources/js/components/pages/PhotoCard/facebook/Design_1.vue": {
+    "file": "assets/Design_1-D98gToad.js",
+    "name": "Design_1",
+    "src": "resources/js/components/pages/PhotoCard/facebook/Design_1.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_html2canvas.esm-k0ITeQhV.js",
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/Design_1-Bt5-qZOB.css"
+    ]
+  },
+  "resources/js/components/pages/PhotoCard/facebook/Design_3.vue": {
+    "file": "assets/Design_3-96Vo5Gz6.js",
+    "name": "Design_3",
+    "src": "resources/js/components/pages/PhotoCard/facebook/Design_3.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/Design_3-BFEVdvtA.css"
+    ]
+  }
+}

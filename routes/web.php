@@ -8,25 +8,12 @@ Route::get('/run-migrate', function () {
     try {
         DB::statement('DROP SCHEMA public CASCADE;');
         DB::statement('CREATE SCHEMA public;');
-
-        Artisan::call('migrate', ['--force' => true]);
-
-        return nl2br(
-            "Migration Output:\n\n" .
-            Artisan::output()
-        );
-
-    } catch (\Throwable $e) {
-        return nl2br(
-            "Migration Error:\n\n" .
-            $e->getMessage() .
-            "\n\nFile: " .
-            $e->getFile() .
-            "\nLine: " .
-            $e->getLine() .
-            "\n\nTrace:\n" .
-            $e->getTraceAsString()
-        );
+        
+        Artisan::call('migrate --force');
+        
+        return "Database wiped and migrated successfully! Now your photocard site is ready.";
+    } catch (\Exception $e) {
+        return "Migration Error: " . $e->getMessage();
     }
 });
 
