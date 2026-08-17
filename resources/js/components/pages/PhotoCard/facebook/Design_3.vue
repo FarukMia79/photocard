@@ -10,7 +10,7 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"> 
 
         <!-- left side: card editor -->
         <div class="bg-white rounded-2xl shadow-xl shadow-gray-200/50 p-8 border border-[#DB1C84]/10">

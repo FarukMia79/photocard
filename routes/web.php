@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\DB;
 
 Route::get('/run-migrate', function () {
     try {
