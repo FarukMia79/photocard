@@ -14,10 +14,9 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                    
                     <!-- Template Card 1 (Design 1 - Featured) -->
-                    <div
-                        class="bg-white rounded-2xl border-2 border-indigo-500/30 shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col justify-between relative">
+                    <router-link :to="{ name: 'Design_1' }"
+                        class="bg-white rounded-2xl border-2 border-indigo-500/30 shadow-md overflow-hidden hover:shadow-xl hover:border-indigo-500 transition-all duration-300 group flex flex-col justify-between relative cursor-pointer block">
                         <span
                             class="absolute top-3 right-3 z-10 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-[10px] font-black px-2.5 py-1 rounded-full shadow-md uppercase tracking-wider">
                             Popular 🔥
@@ -47,19 +46,20 @@
                             </div>
                         </div>
                         <div class="px-5 pb-5 pt-0">
-                            <router-link :to="{ name: 'Design_1' }"
-                                class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-indigo-200 transition duration-200">
+                            <div
+                                class="w-full py-2.5 bg-indigo-600 group-hover:bg-indigo-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-indigo-200 transition duration-200">
                                 <span>Edit (Design 1)</span>
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                                 </svg>
-                            </router-link>
+                            </div>
                         </div>
-                    </div>
+                    </router-link>
+
                     <!-- Template Card 2 (Design 2 - Featured) -->
-                    <div
-                        class="bg-white rounded-2xl border-2 border-indigo-500/30 shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col justify-between relative">
+                    <router-link :to="{ name: 'Design_2' }"
+                        class="bg-white rounded-2xl border-2 border-indigo-500/30 shadow-md overflow-hidden hover:shadow-xl hover:border-indigo-500 transition-all duration-300 group flex flex-col justify-between relative cursor-pointer block">
                         <span
                             class="absolute top-3 right-3 z-10 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-[10px] font-black px-2.5 py-1 rounded-full shadow-md uppercase tracking-wider">
                             Popular 🔥
@@ -89,19 +89,20 @@
                             </div>
                         </div>
                         <div class="px-5 pb-5 pt-0">
-                            <router-link :to="{ name: 'Design_2' }"
-                                class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-indigo-200 transition duration-200">
+                            <div
+                                class="w-full py-2.5 bg-indigo-600 group-hover:bg-indigo-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-indigo-200 transition duration-200">
                                 <span>Edit (Design 2)</span>
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                                 </svg>
-                            </router-link>
+                            </div>
                         </div>
-                    </div>
+                    </router-link>
+
                     <!-- Template Card 3 (Design 3 - Featured) -->
-                    <div
-                        class="bg-white rounded-2xl border-2 border-indigo-500/30 shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col justify-between relative">
+                    <router-link :to="{ name: 'Design_3' }"
+                        class="bg-white rounded-2xl border-2 border-indigo-500/30 shadow-md overflow-hidden hover:shadow-xl hover:border-indigo-500 transition-all duration-300 group flex flex-col justify-between relative cursor-pointer block">
                         <span
                             class="absolute top-3 right-3 z-10 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-[10px] font-black px-2.5 py-1 rounded-full shadow-md uppercase tracking-wider">
                             Popular 🔥
@@ -131,20 +132,20 @@
                             </div>
                         </div>
                         <div class="px-5 pb-5 pt-0">
-                            <router-link :to="{ name: 'Design_3' }"
-                                class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-indigo-200 transition duration-200">
+                            <div
+                                class="w-full py-2.5 bg-indigo-600 group-hover:bg-indigo-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-indigo-200 transition duration-200">
                                 <span>Edit (Design 3)</span>
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                                 </svg>
-                            </router-link>
+                            </div>
                         </div>
-                    </div>
+                    </router-link>
 
                     <!-- Template Card 4 (Design 4 - Red World Map & Social Footer) -->
-                    <div
-                        class="bg-white rounded-2xl border-2 border-indigo-500/30 shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col justify-between relative">
+                    <router-link :to="{ name: 'Design_4' }"
+                        class="bg-white rounded-2xl border-2 border-indigo-500/30 shadow-md overflow-hidden hover:shadow-xl hover:border-indigo-500 transition-all duration-300 group flex flex-col justify-between relative cursor-pointer block">
                         <span
                             class="absolute top-3 right-3 z-10 bg-gradient-to-r from-red-500 to-rose-600 text-white text-[10px] font-black px-2.5 py-1 rounded-full shadow-md uppercase tracking-wider">
                             New ✨
@@ -173,20 +174,20 @@
                             </div>
                         </div>
                         <div class="px-5 pb-5 pt-0">
-                            <router-link :to="{ name: 'Design_4' }"
-                                class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-indigo-200 transition duration-200">
+                            <div
+                                class="w-full py-2.5 bg-indigo-600 group-hover:bg-indigo-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-indigo-200 transition duration-200">
                                 <span>Edit (Design 4)</span>
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                                 </svg>
-                            </router-link>
+                            </div>
                         </div>
-                    </div>
+                    </router-link>
 
                     <!-- Template Card 5 (Design 5 - Breaking News / Floating Red Pill) -->
-                    <div
-                        class="bg-white rounded-2xl border-2 border-indigo-500/30 shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col justify-between relative">
+                    <router-link :to="{ name: 'Design_5' }"
+                        class="bg-white rounded-2xl border-2 border-indigo-500/30 shadow-md overflow-hidden hover:shadow-xl hover:border-indigo-500 transition-all duration-300 group flex flex-col justify-between relative cursor-pointer block">
                         <span
                             class="absolute top-3 right-3 z-10 bg-gradient-to-r from-red-600 to-rose-700 text-white text-[10px] font-black px-2.5 py-1 rounded-full shadow-md uppercase tracking-wider">
                             Trending 🔥
@@ -215,16 +216,16 @@
                             </div>
                         </div>
                         <div class="px-5 pb-5 pt-0">
-                            <router-link :to="{ name: 'Design_5' }"
-                                class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-indigo-200 transition duration-200">
+                            <div
+                                class="w-full py-2.5 bg-indigo-600 group-hover:bg-indigo-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-indigo-200 transition duration-200">
                                 <span>Edit (Design 5)</span>
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                                 </svg>
-                            </router-link>
+                            </div>
                         </div>
-                    </div>
+                    </router-link>
 
                     
 
