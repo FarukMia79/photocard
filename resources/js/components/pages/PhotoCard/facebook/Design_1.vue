@@ -62,9 +62,9 @@
                 class="w-[500px] h-[500px] bg-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] overflow-hidden flex flex-col"
                 :style="cardTransformStyle">
                 
-                <div class="items-center justify-center flex bg-[#A01616]">
-                  <div class="h-[270px] m-2 relative overflow-hidden rounded-2xl">
-                    <img :src="cardData.mainImage" class="w-full h-full object-cover" />
+                <div class="w-full bg-[#A01616] p-2.5">
+                  <div class="w-full h-[270px] relative overflow-hidden rounded-2xl">
+                    <img :src="cardData.mainImage" class="w-full h-full object-cover object-center" />
                   </div>
                 </div>
 
@@ -75,10 +75,10 @@
                 </div>
 
                 <div class="flex-1 bg-white pt-16 px-6 text-center flex flex-col justify-start items-center">
-                  <h2 class="text-[#e21a1a] text-[36px] font-bold leading-tight tracking-tight">
+                  <h2 class="text-[#e21a1a] text-[36px] font-bold leading-tight tracking-normal">
                     {{ cardData.redText }}
                   </h2>
-                  <h3 class="text-gray-900 text-[28px] font-black leading-tight mt-2">
+                  <h3 class="text-gray-900 text-[28px] font-black leading-tight mt-2 tracking-normal">
                     {{ cardData.blackText }}
                   </h3>
                 </div>
@@ -226,18 +226,25 @@ export default {
       const prevOrigin = area.style.transformOrigin;
 
       try {
+        if (document.fonts && document.fonts.ready) {
+          await document.fonts.ready;
+        }
+
         area.style.transform = 'none';
         area.style.position = 'relative';
 
         const canvas = await html2canvas(area, { 
           scale: 2, 
           useCORS: true,
+          allowTaint: true,
           logging: false,
+          letterRendering: false,
           onclone: (clonedDoc) => {
             const clonedArea = clonedDoc.getElementById('news-card');
             if (clonedArea) {
               clonedArea.style.transform = 'none';
               clonedArea.style.position = 'relative';
+              clonedArea.style.letterSpacing = 'normal';
             }
           }
         });
@@ -265,6 +272,7 @@ export default {
 
 #news-card {
   font-family: 'Hind Siliguri', sans-serif;
+  letter-spacing: normal !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

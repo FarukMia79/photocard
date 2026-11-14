@@ -358,12 +358,14 @@ export default {
           useCORS: true,
           allowTaint: true,
           logging: false,
+          letterRendering: false,
           backgroundColor: '#ffffff',
           onclone: (clonedDoc) => {
             const clonedArea = clonedDoc.getElementById('news-card');
             if (clonedArea) {
               clonedArea.style.transform = 'none';
               clonedArea.style.position = 'relative';
+              clonedArea.style.letterSpacing = 'normal';
             }
           }
         });
@@ -394,6 +396,7 @@ export default {
 
 #news-card {
   font-family: 'Hind Siliguri', sans-serif;
+  letter-spacing: normal !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
