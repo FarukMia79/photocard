@@ -35,17 +35,8 @@
                     </div>
                 </div>
 
-                <!-- Right Side Icons -->
-                <div class="flex items-center gap-3 md:gap-4">
-                    <button
-                        class="bg-[#2B1B59] hover:bg-[#1a0f3d] text-white px-3.5 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition shadow-md">
-                        + Upload
-                    </button>
-                    <div class="flex items-center">
-                        <img class="w-8 h-8 md:w-9 md:h-9 rounded-full border-2 border-indigo-100"
-                            src="https://ui-avatars.com/api/?name=User" alt="user photo">
-                    </div>
-                </div>
+                <!-- Right Side Icons (Removed) -->
+                <div></div>
             </div>
         </div>
     </nav>
