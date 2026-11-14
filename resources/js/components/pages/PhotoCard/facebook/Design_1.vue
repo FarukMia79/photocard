@@ -21,17 +21,10 @@
 
           <div class="space-y-5">
             <!-- ফাইল আপলোড -->
-            <div class="grid grid-cols-2 gap-4">
-              <div class="space-y-1">
-                <label class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Main Photo</label>
-                <input type="file" @change="uploadImage"
-                  class="block w-full text-xs text-gray-500 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-red-50 file:text-red-700 hover:file:bg-red-100 cursor-pointer" />
-              </div>
-              <div class="space-y-1">
-                <label class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Your Logo</label>
-                <input type="file" @change="uploadLogo"
-                  class="block w-full text-xs text-gray-500 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100 cursor-pointer" />
-              </div>
+            <div class="space-y-1">
+              <label class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Main Photo</label>
+              <input type="file" @change="uploadImage"
+                class="block w-full text-xs text-gray-500 file:mr-3 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-red-50 file:text-red-700 hover:file:bg-red-100 cursor-pointer" />
             </div>
 
             <!-- ইনপুট ফিল্ডস -->
@@ -39,79 +32,76 @@
               <div>
                 <label class="text-[11px] font-bold text-red-500 uppercase">হেডলাইন (লাল লেখা)</label>
                 <input v-model="cardData.redText" type="text"
-                  class="w-full mt-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 outline-none transition font-bold text-lg" />
+                  class="w-full mt-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 outline-none transition text-sm text-gray-800" />
               </div>
 
               <div>
                 <label class="text-[11px] font-bold text-gray-600 uppercase">সাব-টাইটেল (কালো লেখা)</label>
                 <input v-model="cardData.blackText" type="text"
-                  class="w-full mt-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-800 outline-none transition font-bold text-md" />
-              </div>
-
-              <div class="grid grid-cols-2 gap-4">
-                <div>
-                  <label class="text-[10px] font-bold text-gray-400 uppercase">ফুটার বাম</label>
-                  <input v-model="cardData.footerLeft" type="text"
-                    class="w-full mt-1 px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm" />
-                </div>
-                <div>
-                  <label class="text-[10px] font-bold text-gray-400 uppercase">তারিখ</label>
-                  <input v-model="cardData.footerRight" type="text"
-                    class="w-full mt-1 px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm" />
-                </div>
+                  class="w-full mt-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-800 outline-none transition text-sm text-gray-800" />
               </div>
             </div>
-
-            <!-- ডাউনলোড বাটন -->
-            <button @click="downloadImage"
-              class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-4 rounded-xl font-bold shadow-lg shadow-indigo-100 flex items-center justify-center gap-2 transition-all active:scale-95 mt-6">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-              </svg>
-              Download PNG Image
-            </button>
           </div>
         </div>
 
         <!-- ডান পাশ: লাইভ প্রিভিউ -->
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center w-full">
           <div
-            class="mb-4 inline-block px-4 py-1 bg-white border rounded-full text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+            class="mb-4 inline-block px-4 py-1 bg-white border rounded-full text-[10px] font-bold text-gray-400 uppercase tracking-widest shadow-sm">
             Live Preview (1:1 Ratio)
           </div>
 
-          <!-- ডাউনলোড করার জন্য ref="captureArea" ব্যবহার করা হয়েছে -->
-          <div ref="captureArea" id="news-card"
-            class="w-[500px] h-[500px] bg-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] relative overflow-hidden flex flex-col">
-            
-            <div class="items-center justify-center flex bg-[#A01616]">
-              <div class="h-[270px] m-2 relative overflow-hidden rounded-2xl">
-                <img :src="cardData.mainImage" class="w-full h-full object-cover" />
+          <!-- Preview Wrapper with responsive scale -->
+          <div ref="previewWrapper" class="w-full max-w-[500px] flex justify-center items-center overflow-hidden">
+            <div 
+              class="transition-all duration-150"
+              :style="scalerStyle">
+              
+              <!-- ডাউনলোড করার জন্য ref="captureArea" ব্যবহার করা হয়েছে -->
+              <div ref="captureArea" id="news-card"
+                class="w-[500px] h-[500px] bg-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] overflow-hidden flex flex-col"
+                :style="cardTransformStyle">
+                
+                <div class="items-center justify-center flex bg-[#A01616]">
+                  <div class="h-[270px] m-2 relative overflow-hidden rounded-2xl">
+                    <img :src="cardData.mainImage" class="w-full h-full object-cover" />
+                  </div>
+                </div>
+
+                <div class="absolute top-[230px] left-1/2 -translate-x-1/2 z-10">
+                  <div class="w-[100px] h-[100px] bg-white rounded-full p-1.5 border-[4px] border-[#a01616] shadow-xl">
+                    <img :src="cardData.logo" class="w-full h-full object-contain rounded-full" />
+                  </div>
+                </div>
+
+                <div class="flex-1 bg-white pt-16 px-6 text-center flex flex-col justify-start items-center">
+                  <h2 class="text-[#e21a1a] text-[36px] font-bold leading-tight tracking-tight">
+                    {{ cardData.redText }}
+                  </h2>
+                  <h3 class="text-gray-900 text-[28px] font-black leading-tight mt-2">
+                    {{ cardData.blackText }}
+                  </h3>
+                </div>
+
+                <div class="bg-[#a01616] text-white px-5 py-2.5 flex justify-between items-center">
+                  <span class="text-[14px] font-medium tracking-wide">{{ cardData.footerLeft }}</span>
+                  <span class="text-[17px] font-bold tracking-wide">{{ cardData.footerRight }}</span>
+                </div>
               </div>
-            </div>
-
-            <div class="absolute top-[230px] left-1/2 -translate-x-1/2 z-10">
-              <div class="w-[100px] h-[100px] bg-white rounded-full p-1.5 border-[4px] border-[#a01616] shadow-xl">
-                <img :src="cardData.logo" class="w-full h-full object-contain rounded-full" />
-              </div>
-            </div>
-
-            <div class="flex-1 bg-white pt-16 px-6 text-center flex flex-col justify-start items-center">
-              <h2 class="text-[#e21a1a] text-[36px] font-bold leading-tight tracking-tight">
-                {{ cardData.redText }}
-              </h2>
-              <h3 class="text-gray-900 text-[28px] font-black leading-tight mt-2">
-                {{ cardData.blackText }}
-              </h3>
-            </div>
-
-            <div class="bg-[#a01616] text-white px-5 py-2.5 flex justify-between items-center text-[15px] font-medium italic">
-              <span>{{ cardData.footerLeft }}</span>
-              <span>{{ cardData.footerRight }}</span>
             </div>
           </div>
-          <p class="mt-6 text-gray-400 text-xs italic">এটি ফেসবুকের জন্য আদর্শ ১:১ সাইজ</p>
+
+          <!-- প্রিভিউ এর নিচেও ডাউনলোড বাটন -->
+          <button @click="downloadImage"
+            class="w-full max-w-[500px] bg-indigo-600 hover:bg-indigo-700 text-white py-3.5 rounded-xl font-bold shadow-lg shadow-indigo-100 flex items-center justify-center gap-2 transition-all active:scale-95 mt-5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
+            Download PNG Image
+          </button>
+
+          <p class="mt-3 text-gray-400 text-xs italic">এটি ফেসবুকের জন্য আদর্শ ১:১ সাইজ</p>
         </div>
 
       </div>
@@ -120,7 +110,24 @@
 </template>
 
 <script>
-import html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas-pro';
+import defaultLogo from '../../../../assets/logo.jpg';
+
+function getTodayBanglaDate() {
+  const today = new Date();
+  const day = today.getDate();
+  const monthIndex = today.getMonth();
+  const year = today.getFullYear();
+  const banglaDigits = {'0':'০','1':'১','2':'২','3':'৩','4':'৪','5':'৫','6':'৬','7':'৭','8':'৮','9':'৯'};
+  const banglaMonths = [
+    'জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল',
+    'মে', 'জুন', 'জুলাই', 'আগস্ট',
+    'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'
+  ];
+  const toBn = (num) => String(num).padStart(2, '0').split('').map(d => banglaDigits[d] || d).join('');
+  const toBnYear = (num) => String(num).split('').map(d => banglaDigits[d] || d).join('');
+  return `${toBn(day)} ${banglaMonths[monthIndex]} ${toBnYear(year)}`;
+}
 
 export default {
   name: 'PhotoCardMaker',
@@ -128,19 +135,71 @@ export default {
   // ডেটা প্রপার্টি (Options API স্টাইল)
   data() {
     return {
+      scale: 1,
       cardData: {
         mainImage: 'https://via.placeholder.com/1080x600',
-        logo: 'https://via.placeholder.com/150',
+        logo: defaultLogo,
         redText: 'শিরায় শিরায় রক্ত',
         blackText: 'আমি ইন্ট্রোডারের ভক্ত',
         footerLeft: 'বিস্তারিত কমেন্টে...',
-        footerRight: '০৯ আগস্ট ২০২৪'
+        footerRight: getTodayBanglaDate()
       }
     };
   },
 
+  computed: {
+    scalerStyle() {
+      return {
+        width: `${500 * this.scale}px`,
+        height: `${500 * this.scale}px`,
+        position: 'relative',
+      };
+    },
+    cardTransformStyle() {
+      return {
+        transform: `scale(${this.scale})`,
+        transformOrigin: 'top left',
+        position: 'absolute',
+        top: '0',
+        left: '0',
+      };
+    }
+  },
+
+  mounted() {
+    this.cardData.footerRight = getTodayBanglaDate();
+    this.updateScale();
+    window.addEventListener('resize', this.updateScale);
+    if (window.ResizeObserver && this.$refs.previewWrapper) {
+      this.resizeObserver = new ResizeObserver(() => {
+        this.updateScale();
+      });
+      this.resizeObserver.observe(this.$refs.previewWrapper);
+    }
+  },
+
+  beforeUnmount() {
+    window.removeEventListener('resize', this.updateScale);
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+    }
+  },
+
   // ফাংশনসমূহ (Methods)
   methods: {
+    updateScale() {
+      if (!this.$refs.previewWrapper) return;
+      const availableWidth = this.$refs.previewWrapper.clientWidth;
+      if (availableWidth > 0 && availableWidth < 500) {
+        const newScale = Math.min(1, Math.max(0.3, availableWidth / 500));
+        if (Math.abs(this.scale - newScale) > 0.005) {
+          this.scale = newScale;
+        }
+      } else if (this.scale !== 1) {
+        this.scale = 1;
+      }
+    },
+
     // মূল ছবি আপলোড হ্যান্ডলার
     uploadImage(e) {
       const file = e.target.files[0];
@@ -162,19 +221,39 @@ export default {
       const area = this.$refs.captureArea; // Template এর ref="captureArea" ধরবে
       if (!area) return;
 
+      const prevTransform = area.style.transform;
+      const prevPosition = area.style.position;
+      const prevOrigin = area.style.transformOrigin;
+
       try {
+        area.style.transform = 'none';
+        area.style.position = 'relative';
+
         const canvas = await html2canvas(area, { 
           scale: 2, 
           useCORS: true,
-          logging: false 
+          logging: false,
+          onclone: (clonedDoc) => {
+            const clonedArea = clonedDoc.getElementById('news-card');
+            if (clonedArea) {
+              clonedArea.style.transform = 'none';
+              clonedArea.style.position = 'relative';
+            }
+          }
         });
         
         const link = document.createElement('a');
         link.download = `news-card-${Date.now()}.png`;
         link.href = canvas.toDataURL('image/png');
+        document.body.appendChild(link);
         link.click();
+        document.body.removeChild(link);
       } catch (error) {
         console.error("Download failed:", error);
+      } finally {
+        area.style.transform = prevTransform;
+        area.style.position = prevPosition;
+        area.style.transformOrigin = prevOrigin;
       }
     }
   }
@@ -185,6 +264,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
 
 #news-card {
+  font-family: 'Hind Siliguri', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -111,6 +111,14 @@
                                                 <span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
                                                 <span>Design 3</span>
                                             </router-link>
+
+                                            <router-link :to="{ name: 'Design_4' }" 
+                                                active-class="bg-indigo-50 text-indigo-600 font-bold"
+                                                @click="closeMobileSidebar"
+                                                class="flex items-center gap-2 py-1.5 px-2.5 text-[12px] text-gray-500 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+                                                <span>Design 4</span>
+                                            </router-link>
                                         </div>
                                     </div>
 
