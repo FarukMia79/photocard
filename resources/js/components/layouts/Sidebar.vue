@@ -33,10 +33,10 @@
                         <p class="px-3 text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-2">Menu</p>
 
                         <router-link :to="{ name: 'dashboard' }"
-                            exact-active-class="bg-indigo-50 text-indigo-600 font-semibold"
+                            exact-active-class="bg-pink-50 text-[#C12684] font-semibold"
                             @click="closeMobileSidebar"
                             class="flex items-center gap-3 px-3 py-2.5 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-gray-900 group transition-all duration-150">
-                            <svg class="w-5 h-5 text-gray-400 group-hover:text-indigo-600 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-5 h-5 text-gray-400 group-hover:text-[#C12684] transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                             </svg>
                             <span class="text-sm font-medium">Feed</span>
@@ -61,7 +61,7 @@
                                         </div>
                                         <span class="text-sm font-medium">Facebook</span>
                                     </div>
-                                    <svg :class="{'rotate-180 text-indigo-600': isFacebookOpen}" class="w-4 h-4 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg :class="{'rotate-180 text-[#C12684]': isFacebookOpen}" class="w-4 h-4 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                     </svg>
                                 </button>
@@ -73,7 +73,7 @@
                                     <div>
                                         <button 
                                             @click="isNewsCardOpen = !isNewsCardOpen"
-                                            class="flex items-center justify-between w-full py-2 px-2.5 text-xs font-semibold text-gray-600 rounded-lg hover:bg-indigo-50/60 hover:text-indigo-600 transition"
+                                            class="flex items-center justify-between w-full py-2 px-2.5 text-xs font-semibold text-gray-600 rounded-lg hover:bg-pink-50/60 hover:text-[#C12684] transition"
                                         >
                                             <div class="flex items-center gap-2">
                                                 <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -87,43 +87,43 @@
                                         </button>
 
                                         <!-- Design List Tree -->
-                                        <div v-show="isNewsCardOpen" class="mt-1 ml-3 pl-3 space-y-1 border-l border-indigo-100">
+                                        <div v-show="isNewsCardOpen" class="mt-1 ml-3 pl-3 space-y-1 border-l border-pink-100">
                                             <router-link :to="{ name: 'Design_1' }" 
-                                                active-class="bg-indigo-50 text-indigo-600 font-bold"
+                                                active-class="bg-pink-50 text-[#C12684] font-bold"
                                                 @click="closeMobileSidebar"
-                                                class="flex items-center gap-2 py-1.5 px-2.5 text-[12px] text-gray-500 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition">
+                                                class="flex items-center gap-2 py-1.5 px-2.5 text-[12px] text-gray-500 hover:text-[#C12684] hover:bg-pink-50/50 rounded-lg transition">
                                                 <span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
                                                 <span>Design 1</span>
                                             </router-link>
 
                                             <router-link :to="{ name: 'Design_2' }" 
-                                                active-class="bg-indigo-50 text-indigo-600 font-bold"
+                                                active-class="bg-pink-50 text-[#C12684] font-bold"
                                                 @click="closeMobileSidebar"
-                                                class="flex items-center gap-2 py-1.5 px-2.5 text-[12px] text-gray-500 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition">
+                                                class="flex items-center gap-2 py-1.5 px-2.5 text-[12px] text-gray-500 hover:text-[#C12684] hover:bg-pink-50/50 rounded-lg transition">
                                                 <span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
                                                 <span>Design 2</span>
                                             </router-link>
 
                                             <router-link :to="{ name: 'Design_3' }" 
-                                                active-class="bg-indigo-50 text-indigo-600 font-bold"
+                                                active-class="bg-pink-50 text-[#C12684] font-bold"
                                                 @click="closeMobileSidebar"
-                                                class="flex items-center gap-2 py-1.5 px-2.5 text-[12px] text-gray-500 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition">
+                                                class="flex items-center gap-2 py-1.5 px-2.5 text-[12px] text-gray-500 hover:text-[#C12684] hover:bg-pink-50/50 rounded-lg transition">
                                                 <span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
                                                 <span>Design 3</span>
                                             </router-link>
 
                                             <router-link :to="{ name: 'Design_4' }" 
-                                                active-class="bg-indigo-50 text-indigo-600 font-bold"
+                                                active-class="bg-pink-50 text-[#C12684] font-bold"
                                                 @click="closeMobileSidebar"
-                                                class="flex items-center gap-2 py-1.5 px-2.5 text-[12px] text-gray-500 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition">
+                                                class="flex items-center gap-2 py-1.5 px-2.5 text-[12px] text-gray-500 hover:text-[#C12684] hover:bg-pink-50/50 rounded-lg transition">
                                                 <span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
                                                 <span>Design 4</span>
                                             </router-link>
 
                                             <router-link :to="{ name: 'Design_5' }" 
-                                                active-class="bg-indigo-50 text-indigo-600 font-bold"
+                                                active-class="bg-pink-50 text-[#C12684] font-bold"
                                                 @click="closeMobileSidebar"
-                                                class="flex items-center gap-2 py-1.5 px-2.5 text-[12px] text-gray-500 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition">
+                                                class="flex items-center gap-2 py-1.5 px-2.5 text-[12px] text-gray-500 hover:text-[#C12684] hover:bg-pink-50/50 rounded-lg transition">
                                                 <span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
                                                 <span>Design 5</span>
                                             </router-link>
@@ -132,9 +132,9 @@
 
                                     <!-- Facebook Other Links -->
                                     <router-link to="#" 
-                                        active-class="bg-indigo-50 text-indigo-600 font-semibold"
+                                        active-class="bg-pink-50 text-[#C12684] font-semibold"
                                         @click="closeMobileSidebar"
-                                        class="flex items-center gap-2 py-2 px-2.5 text-xs text-gray-600 rounded-lg hover:bg-indigo-50/60 hover:text-indigo-600 transition">
+                                        class="flex items-center gap-2 py-2 px-2.5 text-xs text-gray-600 rounded-lg hover:bg-pink-50/60 hover:text-[#C12684] transition">
                                         <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                                         </svg>
@@ -142,9 +142,9 @@
                                     </router-link>
 
                                     <router-link to="#" 
-                                        active-class="bg-indigo-50 text-indigo-600 font-semibold"
+                                        active-class="bg-pink-50 text-[#C12684] font-semibold"
                                         @click="closeMobileSidebar"
-                                        class="flex items-center gap-2 py-2 px-2.5 text-xs text-gray-600 rounded-lg hover:bg-indigo-50/60 hover:text-indigo-600 transition">
+                                        class="flex items-center gap-2 py-2 px-2.5 text-xs text-gray-600 rounded-lg hover:bg-pink-50/60 hover:text-[#C12684] transition">
                                         <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                                         </svg>
@@ -155,11 +155,11 @@
 
                             <!-- Youtube Category -->
                             <router-link to="#" 
-                                active-class="bg-indigo-50 text-indigo-600 font-semibold"
+                                active-class="bg-pink-50 text-[#C12684] font-semibold"
                                 @click="closeMobileSidebar"
                                 class="flex items-center justify-between px-3 py-2.5 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-gray-900 transition-all duration-150 group">
                                 <div class="flex items-center gap-3">
-                                    <span class="text-indigo-500 font-bold text-sm">#</span>
+                                    <span class="text-[#C12684] font-bold text-sm">#</span>
                                     <span class="text-sm font-medium">Youtube</span>
                                 </div>
                                 <span class="text-[10px] bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded-full font-bold">New</span>

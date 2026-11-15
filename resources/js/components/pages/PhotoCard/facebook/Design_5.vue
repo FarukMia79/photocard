@@ -8,7 +8,7 @@
           <h1 class="text-2xl font-bold text-gray-900">Facebook News Photo Card Maker</h1>
           <p class="text-xs text-gray-500">ডিজাইন ৫: স্পোর্টস ও ব্রেকিং নিউজ ফটো কার্ড (ফ্লোটিং রেড পিল বক্স ও গ্লোয়িং ফুটারসহ)</p>
         </div>
-        <router-link :to="{ name: 'dashboard' }" class="text-xs font-bold text-indigo-600 hover:underline flex items-center gap-1">
+        <router-link :to="{ name: 'dashboard' }" class="text-xs font-bold text-[#C12684] hover:text-[#2B1B59] hover:underline flex items-center gap-1">
           ← ব্যাক টু ড্যাশবোর্ড
         </router-link>
       </div>
@@ -39,19 +39,41 @@
 
             <!-- হেডলাইন (লাল পিল বক্স) -->
             <div>
-              <label class="text-[11px] font-bold text-red-600 uppercase">টপিক / শিরোনাম (লাল বক্সের লেখা)</label>
-              <input v-model="cardData.headline" type="text"
+              <label class="block text-[11px] font-bold text-red-600 uppercase">টপিক / শিরোনাম (লাল বক্সের লেখা)</label>
+              <input v-model="cardData.headline" type="text" maxlength="40"
                 placeholder="যেমন: প্রেস ব্রিফিংয়ে লিটন:"
+                @input="onHeadlineInput"
+                :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isHeadlineFull}"
                 class="w-full mt-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 outline-none transition text-sm text-gray-800" />
+              <p v-if="isHeadlineFull" class="text-[11px] text-amber-600 font-medium mt-1 flex items-center gap-1">
+                ⚠️ লাইনটি সম্পূর্ণ পূর্ণ হয়েছে! আর লেখা যাবে না।
+              </p>
             </div>
 
-            <!-- মূল বিবরণী (বক্সের ভেতরের লেখা) -->
+            <!-- মূল বিবরণী লাইন ১ -->
             <div>
-              <label class="text-[11px] font-bold text-gray-600 uppercase">মূল বিবরণী (বক্সের ভেতরের টেক্সট)</label>
-              <textarea v-model="cardData.bodyText" rows="4"
-                placeholder="খবরের বিস্তারিত বিবরণ এখানে লিখুন..."
-                class="w-full mt-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-800 outline-none transition text-sm text-gray-800 resize-none"></textarea>
-              <p class="text-[11px] text-gray-400 mt-1">পরামর্শ: নতুন লাইনে যেতে Enter বাটন চাপুন</p>
+              <label class="block text-[11px] font-bold text-gray-600 uppercase">মূল বিবরণী (বক্সের ভেতরের লেখা - লাইন ১)</label>
+              <input v-model="cardData.bodyLine1" type="text" maxlength="70"
+                placeholder="যেমন: টাইগারদের ব্যর্থতার পেছনে দায়ী লিটন"
+                @input="onBodyLine1Input"
+                :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isBodyLine1Full}"
+                class="w-full mt-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-800 outline-none transition text-sm text-gray-800" />
+              <p v-if="isBodyLine1Full" class="text-[11px] text-amber-600 font-medium mt-1 flex items-center gap-1">
+                ⚠️ লাইনটি সম্পূর্ণ পূর্ণ হয়েছে! আর লেখা যাবে না।
+              </p>
+            </div>
+
+            <!-- মূল বিবরণী লাইন ২ -->
+            <div>
+              <label class="block text-[11px] font-bold text-gray-600 uppercase">মূল বিবরণী (বক্সের ভেতরের লেখা - লাইন ২)</label>
+              <input v-model="cardData.bodyLine2" type="text" maxlength="70"
+                placeholder="যেমন: চাইলেন কঠোর দৃষ্টান্তমূলক শাস্তি।"
+                @input="onBodyLine2Input"
+                :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isBodyLine2Full}"
+                class="w-full mt-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-800 outline-none transition text-sm text-gray-800" />
+              <p v-if="isBodyLine2Full" class="text-[11px] text-amber-600 font-medium mt-1 flex items-center gap-1">
+                ⚠️ লাইনটি সম্পূর্ণ পূর্ণ হয়েছে! আর লেখা যাবে না।
+              </p>
             </div>
 
             <!-- ফুটার ওয়েবসাইট -->
@@ -106,15 +128,18 @@
                   
                   <!-- ফ্লোটিং রেড পিল (হেডলাইন) -->
                   <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-30">
-                    <span class="bg-[#d61b23] text-white font-bold text-[17px] px-6 py-1.5 rounded-lg shadow-md whitespace-nowrap font-['Hind_Siliguri'] inline-block tracking-wide">
+                    <span class="bg-[#d61b23] text-white font-bold text-[17px] px-6 py-1.5 rounded-lg shadow-md whitespace-nowrap overflow-hidden text-ellipsis max-w-[420px] font-['Hind_Siliguri'] inline-block tracking-wide">
                       {{ cardData.headline }}
                     </span>
                   </div>
 
                   <!-- ব্ল্যাক রাউন্ডেড বক্স (মূল টেক্সট) -->
-                  <div class="bg-[#0c0c0c]/95 border border-[#d61b23] rounded-2xl pt-6 pb-4 px-6 shadow-2xl text-center backdrop-blur-sm">
-                    <p class="text-white text-[15px] leading-[1.6] font-medium font-['Hind_Siliguri'] whitespace-pre-line tracking-normal">
-                      {{ cardData.bodyText }}
+                  <div class="bg-[#0c0c0c]/95 border border-[#d61b23] rounded-2xl pt-6 pb-4 px-6 shadow-2xl text-center backdrop-blur-sm overflow-hidden">
+                    <p class="text-white text-[15px] leading-[1.5] font-medium font-['Hind_Siliguri'] whitespace-nowrap overflow-hidden text-ellipsis tracking-normal">
+                      {{ cardData.bodyLine1 }}
+                    </p>
+                    <p class="text-white text-[15px] leading-[1.5] font-medium font-['Hind_Siliguri'] whitespace-nowrap overflow-hidden text-ellipsis tracking-normal mt-1">
+                      {{ cardData.bodyLine2 }}
                     </p>
                   </div>
 
@@ -136,7 +161,7 @@
 
           <!-- প্রিভিউ এর নিচে ডাউনলোড বাটন -->
           <button @click="downloadImage" :disabled="isDownloading"
-            class="w-full max-w-[500px] bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white py-3.5 rounded-xl font-bold shadow-lg shadow-indigo-100 flex items-center justify-center gap-2 transition-all active:scale-95 mt-5 cursor-pointer">
+            class="w-full max-w-[500px] bg-gradient-to-r from-[#2B1B59] to-[#C12684] hover:opacity-95 disabled:opacity-50 text-white py-3.5 rounded-xl font-bold shadow-lg shadow-pink-200 flex items-center justify-center gap-2 transition-all active:scale-95 mt-5 cursor-pointer">
             <svg v-if="isDownloading" class="animate-spin w-5 h-5 text-white" fill="none" viewBox="0 0 24 24">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
               <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -160,6 +185,7 @@
 import html2canvas from 'html2canvas-pro';
 import cricketSample from '../../../../assets/cricket.jpg';
 import defaultLogo from '../../../../assets/logo.png';
+import { fitTextToWidth, isTextFull } from '../../../../utils/textLimiter.js';
 
 export default {
   name: 'PhotoCardDesign5',
@@ -172,13 +198,23 @@ export default {
         mainImage: cricketSample,
         logo: defaultLogo,
         headline: 'প্রেস ব্রিফিংয়ে লিটন:',
-        bodyText: 'টাইগার দল বিড়াল হওয়ার পেছনে ইন্ট্রোডারকে\nদায়ী করলে ক্যাপ্টেন লিটন কুমার দাস।\nচাইলে দৃষ্টান্তমূলক শাস্তি।',
+        bodyLine1: 'টাইগারদের ব্যর্থতার পেছনে দায়ী লিটন',
+        bodyLine2: 'চাইলেন কঠোর দৃষ্টান্তমূলক শাস্তি।',
         website: 'www.introder.com'
       }
     };
   },
 
   computed: {
+    isHeadlineFull() {
+      return isTextFull(this.cardData.headline, '700 17px "Hind Siliguri", sans-serif', 380);
+    },
+    isBodyLine1Full() {
+      return isTextFull(this.cardData.bodyLine1, '500 15px "Hind Siliguri", sans-serif', 405);
+    },
+    isBodyLine2Full() {
+      return isTextFull(this.cardData.bodyLine2, '500 15px "Hind Siliguri", sans-serif', 405);
+    },
     scalerStyle() {
       return {
         width: `${500 * this.scale}px`,
@@ -216,6 +252,18 @@ export default {
   },
 
   methods: {
+    onHeadlineInput() {
+      this.cardData.headline = fitTextToWidth(this.cardData.headline, '700 17px "Hind Siliguri", sans-serif', 380);
+    },
+
+    onBodyLine1Input() {
+      this.cardData.bodyLine1 = fitTextToWidth(this.cardData.bodyLine1, '500 15px "Hind Siliguri", sans-serif', 405);
+    },
+
+    onBodyLine2Input() {
+      this.cardData.bodyLine2 = fitTextToWidth(this.cardData.bodyLine2, '500 15px "Hind Siliguri", sans-serif', 405);
+    },
+
     updateScale() {
       if (!this.$refs.previewWrapper) return;
       const availableWidth = this.$refs.previewWrapper.clientWidth;

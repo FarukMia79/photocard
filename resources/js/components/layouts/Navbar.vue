@@ -16,8 +16,8 @@
 
                     <!-- Logo -->
                     <router-link to="/" class="flex ml-1 md:ml-2 md:mr-24">
-                        <span class="self-center text-2xl font-bold whitespace-nowrap text-indigo-600">
-                            Photo<span class="text-gray-800">Card</span>
+                        <span class="self-center text-2xl font-bold whitespace-nowrap bg-gradient-to-r from-[#2B1B59] to-[#C12684] bg-clip-text text-transparent">
+                            Photo<span class="text-[#2B1B59]">Card</span>
                         </span>
                     </router-link>
 
@@ -30,7 +30,7 @@
                             </svg>
                         </div>
                         <input type="text"
-                            class="bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-full focus:ring-indigo-500 focus:border-indigo-500 block w-80 pl-10 p-2 outline-none"
+                            class="bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-full focus:ring-2 focus:ring-[#C12684]/30 focus:border-[#C12684] block w-80 pl-10 p-2 outline-none transition"
                             placeholder="Search photocards...">
                     </div>
                 </div>

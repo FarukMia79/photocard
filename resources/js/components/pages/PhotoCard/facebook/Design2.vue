@@ -8,6 +8,9 @@
           <h1 class="text-2xl font-bold text-gray-900">Facebook News Photo Card Maker</h1>
           <p class="text-sm text-gray-500">প্রফেশনাল এডিটর ও ডিজাইন ২ (পিওর কোড)</p>
         </div>
+        <router-link :to="{ name: 'dashboard' }" class="text-xs font-bold text-[#C12684] hover:text-[#2B1B59] hover:underline flex items-center gap-1">
+          ← ব্যাক টু ড্যাশবোর্ড
+        </router-link>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -30,15 +33,27 @@
             <!-- inputs section -->
             <div class="space-y-4">
               <div>
-                <label class="text-[11px] font-bold text-red-500 uppercase">হেডলাইন (সাদা লেখা)</label>
-                <input v-model="cardData.headline" type="text"
+                <label class="block text-[11px] font-bold text-red-500 uppercase">হেডলাইন (সাদা লেখা - লাইন ১)</label>
+                <input v-model="cardData.headline" type="text" maxlength="60"
+                  @input="onHeadlineInput"
+                  :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isHeadlineFull}"
+                  placeholder="যেমন: তুমি কে আমি কে, ইন্ট্রোডার ইন্ট্রোডার"
                   class="w-full mt-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 outline-none transition text-sm text-gray-800" />
+                <p v-if="isHeadlineFull" class="text-[11px] text-amber-600 font-medium mt-1 flex items-center gap-1">
+                  ⚠️ লাইনটি সম্পূর্ণ পূর্ণ হয়েছে! আর লেখা যাবে না।
+                </p>
               </div>
 
               <div>
-                <label class="text-[11px] font-bold text-yellow-600 uppercase tracking-wider">সাব-টাইটেল (হলুদ লেখা)</label>
-                <input v-model="cardData.subHeadline" type="text"
+                <label class="block text-[11px] font-bold text-yellow-600 uppercase tracking-wider">সাব-টাইটেল (হলুদ লেখা - লাইন ২)</label>
+                <input v-model="cardData.subHeadline" type="text" maxlength="60"
+                  @input="onSubHeadlineInput"
+                  :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isSubHeadlineFull}"
+                  placeholder="যেমন: নিয়েছি তো ইন্ট্রো, আরও নেব আউটট্রো"
                   class="w-full mt-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-yellow-500 outline-none transition text-sm text-gray-800" />
+                <p v-if="isSubHeadlineFull" class="text-[11px] text-amber-600 font-medium mt-1 flex items-center gap-1">
+                  ⚠️ লাইনটি সম্পূর্ণ পূর্ণ হয়েছে! আর লেখা যাবে না।
+                </p>
               </div>
 
               <div>
@@ -88,10 +103,10 @@
                 <div class="flex-1 background-gradient relative flex flex-col items-center justify-start pt-8 px-8 text-center">
                   
                   <!-- headline and sub-headline -->
-                  <h2 class="text-white text-[28px] font-bold leading-tight mb-1 drop-shadow-md">
+                  <h2 class="text-white text-[28px] font-bold leading-tight mb-1 drop-shadow-md whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full">
                     {{ cardData.headline }}
                   </h2>
-                  <h3 class="text-yellow-400 text-[24px] font-black leading-tight drop-shadow-md">
+                  <h3 class="text-yellow-400 text-[24px] font-black leading-tight drop-shadow-md whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full">
                     {{ cardData.subHeadline }}
                   </h3>
 
@@ -127,7 +142,7 @@
 
           <!-- প্রিভিউ এর নিচেও ডাউনলোড বাটন -->
           <button @click="downloadImage"
-            class="w-full max-w-[500px] bg-indigo-600 hover:bg-indigo-700 text-white py-3.5 rounded-xl font-bold shadow-lg shadow-indigo-100 flex items-center justify-center gap-2 transition-all active:scale-95 mt-5">
+            class="w-full max-w-[500px] bg-gradient-to-r from-[#2B1B59] to-[#C12684] hover:opacity-95 text-white py-3.5 rounded-xl font-bold shadow-lg shadow-pink-200 flex items-center justify-center gap-2 transition-all active:scale-95 mt-5">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
@@ -146,6 +161,7 @@
 <script>
 import html2canvas from 'html2canvas-pro';
 import defaultLogo from '../../../../assets/logo.png';
+import { fitTextToWidth, isTextFull } from '../../../../utils/textLimiter.js';
 
 function getTodayBanglaDate() {
   const today = new Date();
@@ -181,6 +197,12 @@ export default {
   },
 
   computed: {
+    isHeadlineFull() {
+      return isTextFull(this.cardData.headline, '700 28px "Hind Siliguri", sans-serif', 425);
+    },
+    isSubHeadlineFull() {
+      return isTextFull(this.cardData.subHeadline, '900 24px "Hind Siliguri", sans-serif', 425);
+    },
     scalerStyle() {
       return {
         width: `${500 * this.scale}px`,
@@ -219,6 +241,14 @@ export default {
   },
 
   methods: {
+    onHeadlineInput() {
+      this.cardData.headline = fitTextToWidth(this.cardData.headline, '700 28px "Hind Siliguri", sans-serif', 425);
+    },
+
+    onSubHeadlineInput() {
+      this.cardData.subHeadline = fitTextToWidth(this.cardData.subHeadline, '900 24px "Hind Siliguri", sans-serif', 425);
+    },
+
     updateScale() {
       if (!this.$refs.previewWrapper) return;
       const availableWidth = this.$refs.previewWrapper.clientWidth;

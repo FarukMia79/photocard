@@ -8,7 +8,7 @@
           <h1 class="text-2xl font-bold text-gray-900">Facebook News Photo Card Maker</h1>
           <p class="text-xs text-gray-500">ডিজাইন ৪: প্রফেশনাল নিউজ ফটো কার্ড এডিটর (ওয়ার্ল্ড ম্যাপ ব্যাকগ্রাউন্ড ও সোশ্যাল ফুটারসহ)</p>
         </div>
-        <router-link :to="{ name: 'dashboard' }" class="text-xs font-bold text-indigo-600 hover:underline flex items-center gap-1">
+        <router-link :to="{ name: 'dashboard' }" class="text-xs font-bold text-[#C12684] hover:text-[#2B1B59] hover:underline flex items-center gap-1">
           ← ব্যাক টু ড্যাশবোর্ড
         </router-link>
       </div>
@@ -39,18 +39,28 @@
 
             <!-- হেডলাইন ইনপুট -->
             <div>
-              <label class="text-[11px] font-bold text-red-600 uppercase">হেডলাইন (লাইন ১)</label>
-              <input v-model="cardData.headline" type="text"
+              <label class="block text-[11px] font-bold text-red-600 uppercase">হেডলাইন (লাইন ১)</label>
+              <input v-model="cardData.headline" type="text" maxlength="60"
                 placeholder="যেমন: আমার সোনার বাংলা"
+                @input="onHeadlineInput"
+                :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isHeadlineFull}"
                 class="w-full mt-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 outline-none transition text-sm text-gray-800" />
+              <p v-if="isHeadlineFull" class="text-[11px] text-amber-600 font-medium mt-1 flex items-center gap-1">
+                ⚠️ লাইনটি সম্পূর্ণ পূর্ণ হয়েছে! আর লেখা যাবে না।
+              </p>
             </div>
 
             <!-- সাব-টাইটেল ইনপুট -->
             <div>
-              <label class="text-[11px] font-bold text-gray-600 uppercase">সাব-টাইটেল (লাইন ২)</label>
-              <input v-model="cardData.subHeadline" type="text"
+              <label class="block text-[11px] font-bold text-gray-600 uppercase">সাব-টাইটেল (লাইন ২)</label>
+              <input v-model="cardData.subHeadline" type="text" maxlength="60"
                 placeholder="যেমন: আমি ইন্ট্রোডারকে ভালোবাসি"
+                @input="onSubHeadlineInput"
+                :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isSubHeadlineFull}"
                 class="w-full mt-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-800 outline-none transition text-sm text-gray-800" />
+              <p v-if="isSubHeadlineFull" class="text-[11px] text-amber-600 font-medium mt-1 flex items-center gap-1">
+                ⚠️ লাইনটি সম্পূর্ণ পূর্ণ হয়েছে! আর লেখা যাবে না।
+              </p>
             </div>
 
             <!-- সোশ্যাল মিডিয়া ও ওয়েবসাইট ইনপুট -->
@@ -139,10 +149,10 @@
 
                   <!-- হেডলাইন ও সাব-টাইটেল -->
                   <div class="relative z-10 w-full flex flex-col items-center justify-center">
-                    <h2 class="text-white text-[28px] font-bold leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] font-['Noto_Serif_Bengali']">
+                    <h2 class="text-white text-[28px] font-bold leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] font-['Noto_Serif_Bengali'] whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full text-center">
                       {{ cardData.headline }}
                     </h2>
-                    <h3 class="text-white text-[28px] font-bold leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] font-['Noto_Serif_Bengali'] mt-1.5">
+                    <h3 class="text-white text-[28px] font-bold leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] font-['Noto_Serif_Bengali'] mt-1.5 whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full text-center">
                       {{ cardData.subHeadline }}
                     </h3>
                   </div>
@@ -191,7 +201,7 @@
 
           <!-- প্রিভিউ এর নিচে ডাউনলোড বাটন -->
           <button @click="downloadImage" :disabled="isDownloading"
-            class="w-full max-w-[500px] bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white py-3.5 rounded-xl font-bold shadow-lg shadow-indigo-100 flex items-center justify-center gap-2 transition-all active:scale-95 mt-5 cursor-pointer">
+            class="w-full max-w-[500px] bg-gradient-to-r from-[#2B1B59] to-[#C12684] hover:opacity-95 disabled:opacity-50 text-white py-3.5 rounded-xl font-bold shadow-lg shadow-pink-200 flex items-center justify-center gap-2 transition-all active:scale-95 mt-5 cursor-pointer">
             <svg v-if="isDownloading" class="animate-spin w-5 h-5 text-white" fill="none" viewBox="0 0 24 24">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
               <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -216,6 +226,7 @@ import html2canvas from 'html2canvas-pro';
 import defaultPhoto from '../../../../assets/paharpur.jpg';
 import defaultLogo from '../../../../assets/logo.png';
 import mapPng from '../../../../assets/world-dotted-map.png';
+import { fitTextToWidth, isTextFull } from '../../../../utils/textLimiter.js';
 
 export default {
   name: 'PhotoCardDesign4',
@@ -238,6 +249,12 @@ export default {
   },
 
   computed: {
+    isHeadlineFull() {
+      return isTextFull(this.cardData.headline, '700 28px "Noto Serif Bengali", serif', 440);
+    },
+    isSubHeadlineFull() {
+      return isTextFull(this.cardData.subHeadline, '700 28px "Noto Serif Bengali", serif', 440);
+    },
     scalerStyle() {
       return {
         width: `${500 * this.scale}px`,
@@ -275,6 +292,14 @@ export default {
   },
 
   methods: {
+    onHeadlineInput() {
+      this.cardData.headline = fitTextToWidth(this.cardData.headline, '700 28px "Noto Serif Bengali", serif', 440);
+    },
+
+    onSubHeadlineInput() {
+      this.cardData.subHeadline = fitTextToWidth(this.cardData.subHeadline, '700 28px "Noto Serif Bengali", serif', 440);
+    },
+
     updateScale() {
       if (!this.$refs.previewWrapper) return;
       const availableWidth = this.$refs.previewWrapper.clientWidth;

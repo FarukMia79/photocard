@@ -8,6 +8,9 @@
           <h1 class="text-2xl font-bold text-gray-900">Facebook News Photo Card Maker</h1>
           <p class="text-sm text-gray-500">ফেসবুকের জন্য প্রফেশনাল নিউজ কার্ড তৈরি করুন</p>
         </div>
+        <router-link :to="{ name: 'dashboard' }" class="text-xs font-bold text-[#C12684] hover:text-[#2B1B59] hover:underline flex items-center gap-1">
+          ← ব্যাক টু ড্যাশবোর্ড
+        </router-link>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -21,24 +24,43 @@
 
           <div class="space-y-5">
             <!-- ফাইল আপলোড -->
-            <div class="space-y-1">
-              <label class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Main Photo</label>
-              <input type="file" @change="uploadImage"
-                class="block w-full text-xs text-gray-500 file:mr-3 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-red-50 file:text-red-700 hover:file:bg-red-100 cursor-pointer" />
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="space-y-1">
+                <label class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Main Photo</label>
+                <input type="file" @change="uploadImage"
+                  class="block w-full text-xs text-gray-500 file:mr-3 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-red-50 file:text-red-700 hover:file:bg-red-100 cursor-pointer" />
+              </div>
+              <div class="space-y-1">
+                <label class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Logo Photo</label>
+                <input type="file" @change="uploadLogo"
+                  class="block w-full text-xs text-gray-500 file:mr-3 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100 cursor-pointer" />
+              </div>
             </div>
 
             <!-- ইনপুট ফিল্ডস -->
             <div class="space-y-4">
               <div>
-                <label class="text-[11px] font-bold text-red-500 uppercase">হেডলাইন (লাল লেখা)</label>
-                <input v-model="cardData.redText" type="text"
+                <label class="block text-[11px] font-bold text-red-500 uppercase">হেডলাইন (লাল লেখা - লাইন ১)</label>
+                <input v-model="cardData.redText" type="text" maxlength="45"
+                  @input="onRedTextInput"
+                  :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isRedTextFull}"
+                  placeholder="যেমন: শিরায় শিরায় রক্ত"
                   class="w-full mt-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 outline-none transition text-sm text-gray-800" />
+                <p v-if="isRedTextFull" class="text-[11px] text-amber-600 font-medium mt-1 flex items-center gap-1">
+                  ⚠️ লাইনটি সম্পূর্ণ পূর্ণ হয়েছে! আর লেখা যাবে না।
+                </p>
               </div>
 
               <div>
-                <label class="text-[11px] font-bold text-gray-600 uppercase">সাব-টাইটেল (কালো লেখা)</label>
-                <input v-model="cardData.blackText" type="text"
+                <label class="block text-[11px] font-bold text-gray-600 uppercase">সাব-টাইটেল (কালো লেখা - লাইন ২)</label>
+                <input v-model="cardData.blackText" type="text" maxlength="45"
+                  @input="onBlackTextInput"
+                  :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isBlackTextFull}"
+                  placeholder="যেমন: আমি ইন্ট্রোডারের ভক্ত"
                   class="w-full mt-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-800 outline-none transition text-sm text-gray-800" />
+                <p v-if="isBlackTextFull" class="text-[11px] text-amber-600 font-medium mt-1 flex items-center gap-1">
+                  ⚠️ লাইনটি সম্পূর্ণ পূর্ণ হয়েছে! আর লেখা যাবে না।
+                </p>
               </div>
             </div>
           </div>
@@ -74,11 +96,11 @@
                   </div>
                 </div>
 
-                <div class="flex-1 bg-white pt-16 px-6 text-center flex flex-col justify-start items-center">
-                  <h2 class="text-[#e21a1a] text-[36px] font-bold leading-tight tracking-normal">
+                <div class="flex-1 bg-white pt-13 px-6 text-center flex flex-col justify-start items-center overflow-hidden">
+                  <h2 class="text-[#e21a1a] text-[36px] font-bold leading-tight tracking-normal whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full">
                     {{ cardData.redText }}
                   </h2>
-                  <h3 class="text-gray-900 text-[28px] font-black leading-tight mt-2 tracking-normal">
+                  <h3 class="text-gray-900 text-[36px] font-black leading-tight mt-2 tracking-normal whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full">
                     {{ cardData.blackText }}
                   </h3>
                 </div>
@@ -93,7 +115,7 @@
 
           <!-- প্রিভিউ এর নিচেও ডাউনলোড বাটন -->
           <button @click="downloadImage"
-            class="w-full max-w-[500px] bg-indigo-600 hover:bg-indigo-700 text-white py-3.5 rounded-xl font-bold shadow-lg shadow-indigo-100 flex items-center justify-center gap-2 transition-all active:scale-95 mt-5">
+            class="w-full max-w-[500px] bg-gradient-to-r from-[#2B1B59] to-[#C12684] hover:opacity-95 text-white py-3.5 rounded-xl font-bold shadow-lg shadow-pink-200 flex items-center justify-center gap-2 transition-all active:scale-95 mt-5">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
@@ -112,6 +134,8 @@
 <script>
 import html2canvas from 'html2canvas-pro';
 import defaultLogo from '../../../../assets/logo.png';
+import defaultPhoto from '../../../../assets/mir_asrafali.jpg';
+import { fitTextToWidth, isTextFull } from '../../../../utils/textLimiter.js';
 
 function getTodayBanglaDate() {
   const today = new Date();
@@ -137,7 +161,7 @@ export default {
     return {
       scale: 1,
       cardData: {
-        mainImage: 'https://via.placeholder.com/1080x600',
+        mainImage: defaultPhoto,
         logo: defaultLogo,
         redText: 'শিরায় শিরায় রক্ত',
         blackText: 'আমি ইন্ট্রোডারের ভক্ত',
@@ -148,6 +172,12 @@ export default {
   },
 
   computed: {
+    isRedTextFull() {
+      return isTextFull(this.cardData.redText, '700 36px "Hind Siliguri", sans-serif', 440);
+    },
+    isBlackTextFull() {
+      return isTextFull(this.cardData.blackText, '900 36px "Hind Siliguri", sans-serif', 440);
+    },
     scalerStyle() {
       return {
         width: `${500 * this.scale}px`,
@@ -187,6 +217,14 @@ export default {
 
   // ফাংশনসমূহ (Methods)
   methods: {
+    onRedTextInput() {
+      this.cardData.redText = fitTextToWidth(this.cardData.redText, '700 36px "Hind Siliguri", sans-serif', 440);
+    },
+
+    onBlackTextInput() {
+      this.cardData.blackText = fitTextToWidth(this.cardData.blackText, '900 36px "Hind Siliguri", sans-serif', 440);
+    },
+
     updateScale() {
       if (!this.$refs.previewWrapper) return;
       const availableWidth = this.$refs.previewWrapper.clientWidth;
@@ -204,7 +242,11 @@ export default {
     uploadImage(e) {
       const file = e.target.files[0];
       if (file) {
-        this.cardData.mainImage = URL.createObjectURL(file);
+        const reader = new FileReader();
+        reader.onload = (uploadEvent) => {
+          this.cardData.mainImage = uploadEvent.target.result;
+        };
+        reader.readAsDataURL(file);
       }
     },
 
@@ -212,7 +254,11 @@ export default {
     uploadLogo(e) {
       const file = e.target.files[0];
       if (file) {
-        this.cardData.logo = URL.createObjectURL(file);
+        const reader = new FileReader();
+        reader.onload = (uploadEvent) => {
+          this.cardData.logo = uploadEvent.target.result;
+        };
+        reader.readAsDataURL(file);
       }
     },
 
