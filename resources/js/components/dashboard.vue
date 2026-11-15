@@ -194,7 +194,7 @@
                         </span>
                         <div>
                             <div
-                                class="relative h-48 bg-gradient-to-br from-neutral-900 to-black overflow-hidden flex items-center justify-center p-4">
+                                class="relative h-48 bg-gradient-to-br from-red-50 to-neutral-100 overflow-hidden flex items-center justify-center p-4">
                                 <div
                                     class="w-44 h-36 bg-black shadow-lg text-white flex flex-col justify-between transform group-hover:scale-105 transition duration-300 relative rounded-md overflow-hidden">
                                     <img src="../../../public/uploads/image/cards/design-5.png" alt="Design 5" class="w-full h-full object-cover">

@@ -115,6 +115,13 @@
                 class="w-[500px] h-[500px] bg-[#a9050d] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] overflow-hidden flex flex-col relative select-none"
                 :style="cardTransformStyle">
 
+                <!-- টপ-লেফট লোগো ব্যাজ (Design 5 এর মতো) -->
+                <div class="absolute top-4 left-4 z-30">
+                  <div class="bg-white/95 rounded-full px-1.5 py-3 shadow-lg border border-[#d61b23] flex items-center justify-center backdrop-blur-sm">
+                    <img :src="cardData.logo" class="h-12 max-w-[60px] object-contain" />
+                  </div>
+                </div>
+
                 <!-- ওপরের মূল ছবি (চারপাশে লাল বর্ডারসহ) -->
                 <div class="p-2.5 pb-0 h-[320px] w-full shrink-0">
                   <div class="w-full h-full overflow-hidden bg-[#111827]">
@@ -142,12 +149,14 @@
                 </div>
 
                 <!-- নিচের গাঢ় লাল ফুটার বার -->
-                <div class="h-[42px] bg-[#720207] border-t border-[#8f0a10] px-3.5 flex items-center justify-between text-white z-20 shrink-0">
+                <div class="h-[42px] bg-[#720207] border-t border-[#8f0a10] px-3.5 flex items-center justify-center text-white z-20 shrink-0">
                   
                   <!-- বামে লোগো -->
+                  <!--
                   <div class="flex items-center">
                     <img :src="cardData.logo" class="h-6 max-w-[130px] object-contain" />
                   </div>
+                  -->
 
                   <!-- ডানে ওয়েবসাইট ও সোশ্যাল আইকন -->
                   <div class="flex items-center gap-3 text-[10.5px] font-medium tracking-tight">
@@ -205,7 +214,7 @@
 <script>
 import html2canvas from 'html2canvas-pro';
 import defaultPhoto from '../../../../assets/paharpur.jpg';
-import introderLogo from '../../../../assets/introder_logo.png';
+import defaultLogo from '../../../../assets/logo.png';
 import mapPng from '../../../../assets/world-dotted-map.png';
 
 export default {
@@ -218,7 +227,7 @@ export default {
       isDownloading: false,
       cardData: {
         mainImage: defaultPhoto,
-        logo: introderLogo,
+        logo: defaultLogo,
         headline: 'আমার সোনার বাংলা',
         subHeadline: 'আমি ইন্ট্রোডারকে ভালোবাসি',
         website: 'www.introder.com',

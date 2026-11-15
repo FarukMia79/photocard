@@ -68,8 +68,8 @@
                 :style="cardTransformStyle">
                 
                 <!-- top logo and date -->
-                <div class="bg-white px-6 py-2 flex justify-between items-center h-[65px] z-20">
-                  <img :src="cardData.logo" class="h-12 max-w-[120px] object-contain" />
+                <div class="bg-white px-6 py-2 flex justify-between items-center h-[70px] z-20">
+                  <img :src="cardData.logo" class="h-14 max-w-[60px] object-contain" />
                   <span class="text-gray-800 text-lg font-bold">{{ cardData.date }}</span>
                 </div>
 
@@ -145,7 +145,7 @@
 
 <script>
 import html2canvas from 'html2canvas-pro';
-import defaultLogo from '../../../../assets/logo.jpg';
+import defaultLogo from '../../../../assets/logo.png';
 
 function getTodayBanglaDate() {
   const today = new Date();

@@ -96,8 +96,8 @@
 
                 <!-- টপ-লেফট লোগো ব্যাজ -->
                 <div class="absolute top-4 left-4 z-20">
-                  <div class="w-14 h-14 bg-white/95 rounded-xl p-1.5 shadow-lg border border-white/40 flex items-center justify-center backdrop-blur-sm">
-                    <img :src="cardData.logo" class="w-full h-full object-contain rounded-lg" />
+                  <div class="bg-white/95 rounded-full px-1.5 py-3 shadow-lg border border-[#d61b23] flex items-center justify-center backdrop-blur-sm">
+                    <img :src="cardData.logo" class="h-12 max-w-[60px] object-contain" />
                   </div>
                 </div>
 
@@ -159,7 +159,7 @@
 <script>
 import html2canvas from 'html2canvas-pro';
 import cricketSample from '../../../../assets/cricket.jpg';
-import defaultLogo from '../../../../assets/logo.jpg';
+import defaultLogo from '../../../../assets/logo.png';
 
 export default {
   name: 'PhotoCardDesign5',

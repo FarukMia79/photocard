@@ -111,7 +111,7 @@
 
 <script>
 import html2canvas from 'html2canvas-pro';
-import defaultLogo from '../../../../assets/logo.jpg';
+import defaultLogo from '../../../../assets/logo.png';
 
 function getTodayBanglaDate() {
   const today = new Date();
