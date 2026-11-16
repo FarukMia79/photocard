@@ -113,7 +113,7 @@
                                 <!-- Tilted Frame Mini Representation -->
                                 <div
                                     class="w-44 h-36 bg-[#2B1B59] shadow-lg text-white flex flex-col justify-between transform group-hover:scale-105 transition duration-300 relative">
-                                    <img src="../../../public/uploads/image/cards/design-2.png" alt="Design 3" class="w-full h-full object-cover">
+                                    <img src="../../../public/uploads/image/cards/design-3.png" alt="Design 3" class="w-full h-full object-cover">
                                 </div>
                                 <span
                                     class="absolute top-3 left-3 bg-gradient-to-r from-[#2B1B59] to-[#C12684] text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-md">

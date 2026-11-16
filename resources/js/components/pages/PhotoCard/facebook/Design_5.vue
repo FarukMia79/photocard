@@ -76,16 +76,32 @@
               </p>
             </div>
 
-            <!-- ফুটার ওয়েবসাইট -->
-            <div class="pt-2 border-t border-gray-100">
-              <label class="text-[10px] font-bold text-gray-400 uppercase">ফুটার ওয়েবসাইট</label>
-              <div class="relative mt-1">
-                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-red-500 text-xs">
-                  🌐
-                </span>
-                <input v-model="cardData.website" type="text"
-                  placeholder="www.introder.com"
-                  class="w-full pl-8 pr-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 outline-none focus:ring-2 focus:ring-red-500" />
+            <!-- সোশ্যাল মিডিয়া -->
+            <div class="pt-2 border-t border-gray-100 space-y-3">
+              <h3 class="text-xs font-bold text-gray-500 uppercase tracking-wider">সোশ্যাল মিডিয়া</h3>
+
+              <div>
+                <label class="text-[10px] font-bold text-gray-400 uppercase">ইউটিউব চ্যানেল</label>
+                <div class="relative mt-1">
+                  <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-red-600 text-xs">
+                    ▶
+                  </span>
+                  <input v-model="cardData.youtube" type="text"
+                    placeholder="testo life tv"
+                    class="w-full pl-8 pr-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 outline-none focus:ring-2 focus:ring-red-500" />
+                </div>
+              </div>
+
+              <div>
+                <label class="text-[10px] font-bold text-gray-400 uppercase">ফেসবুক পেজ / আইডি</label>
+                <div class="relative mt-1">
+                  <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-blue-600 font-bold text-xs">
+                    f
+                  </span>
+                  <input v-model="cardData.facebook" type="text"
+                    placeholder="testo life tv"
+                    class="w-full pl-8 pr-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 outline-none focus:ring-2 focus:ring-red-500" />
+                </div>
               </div>
             </div>
 
@@ -134,7 +150,7 @@
                   </div>
 
                   <!-- ব্ল্যাক রাউন্ডেড বক্স (মূল টেক্সট) -->
-                  <div class="bg-[#0c0c0c]/95 border border-[#d61b23] rounded-2xl pt-6 pb-4 px-6 shadow-2xl text-center backdrop-blur-sm overflow-hidden">
+                  <div class="bg-[#0c0c0c]/95 border border-[#d61b23] rounded-2xl pt-8 pb-4 px-6 shadow-2xl text-center backdrop-blur-sm overflow-hidden">
                     <p class="text-white text-[15px] leading-[1.5] font-medium font-['Hind_Siliguri'] whitespace-nowrap overflow-hidden text-ellipsis tracking-normal">
                       {{ cardData.bodyLine1 }}
                     </p>
@@ -149,10 +165,27 @@
                 <div class="h-[36px] bg-black flex items-center justify-center relative overflow-hidden shrink-0 z-20 border-t border-neutral-900">
                   <!-- রেড গ্লো স্পটলাইট -->
                   <div class="w-56 h-4 bg-gradient-to-r from-transparent via-[#d61b23] to-transparent opacity-90 blur-[3px] absolute pointer-events-none"></div>
-                  <!-- ওয়েবসাইট টেক্সট -->
-                  <span class="relative z-10 text-white font-medium text-[11px] tracking-widest font-sans">
-                    {{ cardData.website }}
-                  </span>
+                  
+                  <!-- ইউটিউব ও ফেসবুক ইনফো -->
+                  <div class="relative z-10 flex items-center justify-center gap-6 text-[11px] text-white tracking-tight font-medium font-sans">
+                    <!-- ইউটিউব -->
+                    <div class="flex items-center gap-1.5 uppercase font-bold tracking-tighter">
+                      <svg class="w-4 h-3 shrink-0" width="16" height="12" viewBox="0 0 24 24" fill="none">
+                        <path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
+                        <path fill="#FFFFFF" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                      </svg>
+                      <span>{{ cardData.youtube || 'testo life tv' }}</span>
+                    </div>
+
+                    <!-- ফেসবুক -->
+                    <div class="flex items-center gap-1.5 uppercase font-bold tracking-tighter">
+                      <svg class="w-3.5 h-3.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none">
+                        <path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        <path fill="#FFFFFF" d="M16.671 15.469l.532-3.47h-3.328v-2.25c0-.949.465-1.874 1.956-1.874h1.513V4.922s-1.374-.235-2.686-.235c-2.741 0-4.533 1.662-4.533 4.669v2.643H7.078v3.47h3.047v8.385a12.18 12.18 0 003.75 0v-8.385h2.796z"/>
+                      </svg>
+                      <span>{{ cardData.facebook || 'testo life tv' }}</span>
+                    </div>
+                  </div>
                 </div>
 
               </div>
@@ -200,7 +233,8 @@ export default {
         headline: 'প্রেস ব্রিফিংয়ে লিটন:',
         bodyLine1: 'টাইগারদের ব্যর্থতার পেছনে দায়ী লিটন',
         bodyLine2: 'চাইলেন কঠোর দৃষ্টান্তমূলক শাস্তি।',
-        website: 'www.introder.com'
+        youtube: 'testo life tv',
+        facebook: 'testo life tv'
       }
     };
   },

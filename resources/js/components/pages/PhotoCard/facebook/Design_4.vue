@@ -63,21 +63,9 @@
               </p>
             </div>
 
-            <!-- সোশ্যাল মিডিয়া ও ওয়েবসাইট ইনপুট -->
+            <!-- সোশ্যাল মিডিয়া -->
             <div class="pt-2 border-t border-gray-100 space-y-3">
               <h3 class="text-xs font-bold text-gray-500 uppercase tracking-wider">ফুটার ও সোশ্যাল তথ্য</h3>
-              
-              <div>
-                <label class="text-[10px] font-bold text-gray-400 uppercase">ওয়েবসাইট</label>
-                <div class="relative mt-1">
-                  <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400 text-xs">
-                    ►
-                  </span>
-                  <input v-model="cardData.website" type="text"
-                    placeholder="www.introder.com"
-                    class="w-full pl-8 pr-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 outline-none focus:ring-2 focus:ring-red-500" />
-                </div>
-              </div>
 
               <div>
                 <label class="text-[10px] font-bold text-gray-400 uppercase">ফেসবুক পেজ / আইডি</label>
@@ -86,7 +74,7 @@
                     f
                   </span>
                   <input v-model="cardData.facebook" type="text"
-                    placeholder="introder - intro render"
+                    placeholder="testo life tv"
                     class="w-full pl-8 pr-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 outline-none focus:ring-2 focus:ring-red-500" />
                 </div>
               </div>
@@ -98,7 +86,7 @@
                     ▶
                   </span>
                   <input v-model="cardData.youtube" type="text"
-                    placeholder="introrender"
+                    placeholder="testo life tv"
                     class="w-full pl-8 pr-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 outline-none focus:ring-2 focus:ring-red-500" />
                 </div>
               </div>
@@ -170,25 +158,22 @@
 
                   <!-- ডানে ওয়েবসাইট ও সোশ্যাল আইকন -->
                   <div class="flex items-center gap-3 text-[10.5px] font-medium tracking-tight">
-                    <!-- ওয়েবসাইট -->
-                    <div class="flex items-center gap-1.5">
-                      <span class="text-[9px] leading-none shrink-0">►</span>
-                      <span class="font-sans">{{ cardData.website }}</span>
-                    </div>
 
                     <!-- ফেসবুক -->
-                    <div class="flex items-center gap-1">
-                      <span class="w-3.5 h-3.5 bg-white text-[#720207] rounded-full flex items-center justify-center text-[9px] font-black font-sans shrink-0">
-                        f
-                      </span>
+                    <div class="flex items-center gap-1.5">
+                      <svg class="w-3.5 h-3.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none">
+                        <path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        <path fill="#FFFFFF" d="M16.671 15.469l.532-3.47h-3.328v-2.25c0-.949.465-1.874 1.956-1.874h1.513V4.922s-1.374-.235-2.686-.235c-2.741 0-4.533 1.662-4.533 4.669v2.643H7.078v3.47h3.047v8.385a12.18 12.18 0 003.75 0v-8.385h2.796z"/>
+                      </svg>
                       <span class="font-sans">{{ cardData.facebook }}</span>
                     </div>
 
                     <!-- ইউটিউব -->
-                    <div class="flex items-center gap-1">
-                      <span class="w-3.5 h-2.5 bg-white text-[#720207] rounded-[2px] flex items-center justify-center text-[7px] leading-none font-bold shrink-0">
-                        ▶
-                      </span>
+                    <div class="flex items-center gap-1.5">
+                      <svg class="w-4 h-3 shrink-0" width="16" height="12" viewBox="0 0 24 24" fill="none">
+                        <path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
+                        <path fill="#FFFFFF" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                      </svg>
                       <span class="font-sans">{{ cardData.youtube }}</span>
                     </div>
                   </div>
@@ -241,9 +226,8 @@ export default {
         logo: defaultLogo,
         headline: 'আমার সোনার বাংলা',
         subHeadline: 'আমি ইন্ট্রোডারকে ভালোবাসি',
-        website: 'www.introder.com',
-        facebook: 'introder - intro render',
-        youtube: 'introrender'
+        facebook: 'testo life tv',
+        youtube: 'testo life tv'
       }
     };
   },
