@@ -343,8 +343,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;900&display=swap');
-
 #news-card {
   font-family: 'Hind Siliguri', sans-serif;
   letter-spacing: normal !important;

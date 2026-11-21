@@ -97,10 +97,10 @@
                 </div>
 
                 <div class="flex-1 bg-white pt-13 px-6 text-center flex flex-col justify-start items-center overflow-hidden">
-                  <h2 class="text-[#e21a1a] text-[36px] font-bold leading-tight tracking-normal whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full">
+                  <h2 class="text-[#e21a1a] text-[36px] font-bold leading-tight tracking-normal whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full z-20">
                     {{ cardData.redText }}
                   </h2>
-                  <h3 class="text-gray-900 text-[36px] font-black leading-tight mt-2 tracking-normal whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full">
+                  <h3 class="text-gray-900 text-[36px] font-black leading-tight mt-2 tracking-normal whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full z-20">
                     {{ cardData.blackText }}
                   </h3>
                 </div>
@@ -314,8 +314,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
-
 #news-card {
   font-family: 'Hind Siliguri', sans-serif;
   letter-spacing: normal !important;
