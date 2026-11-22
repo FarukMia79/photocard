@@ -31,7 +31,97 @@
         <link rel="preload" href="/fonts/HindSiliguri-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
         <link rel="preload" href="/fonts/HindSiliguri-Regular.ttf" as="font" type="font/ttf" crossorigin>
 
-        <!-- Google Fonts -->
+        <!-- Local Fonts (Hind Siliguri Fixed By Fahim) -->
+        <link rel="stylesheet" href="/fonts/fonts.css">
+        <style>
+            @font-face {
+                font-family: 'Hind Siliguri';
+                src: url('/fonts/HindSiliguri-Light.ttf') format('truetype');
+                font-weight: 300;
+                font-style: normal;
+                font-display: swap;
+            }
+            @font-face {
+                font-family: 'Hind Siliguri';
+                src: url('/fonts/HindSiliguri-Regular.ttf') format('truetype');
+                font-weight: 400;
+                font-style: normal;
+                font-display: swap;
+            }
+            @font-face {
+                font-family: 'Hind Siliguri';
+                src: url('/fonts/HindSiliguri-Medium.ttf') format('truetype');
+                font-weight: 500;
+                font-style: normal;
+                font-display: swap;
+            }
+            @font-face {
+                font-family: 'Hind Siliguri';
+                src: url('/fonts/HindSiliguri-SemiBold.ttf') format('truetype');
+                font-weight: 600;
+                font-style: normal;
+                font-display: swap;
+            }
+            @font-face {
+                font-family: 'Hind Siliguri';
+                src: url('/fonts/HindSiliguri-Bold.ttf') format('truetype');
+                font-weight: 700;
+                font-style: normal;
+                font-display: swap;
+            }
+            @font-face {
+                font-family: 'Hind Siliguri';
+                src: url('/fonts/HindSiliguri-Bold.ttf') format('truetype');
+                font-weight: 800;
+                font-style: normal;
+                font-display: swap;
+            }
+            @font-face {
+                font-family: 'Hind Siliguri';
+                src: url('/fonts/HindSiliguri-Bold.ttf') format('truetype');
+                font-weight: 900;
+                font-style: normal;
+                font-display: swap;
+            }
+
+            @font-face {
+                font-family: 'Hind Siliguri Fixed By Fahim';
+                src: url('/fonts/HindSiliguri-Light.ttf') format('truetype');
+                font-weight: 300;
+                font-style: normal;
+                font-display: swap;
+            }
+            @font-face {
+                font-family: 'Hind Siliguri Fixed By Fahim';
+                src: url('/fonts/HindSiliguri-Regular.ttf') format('truetype');
+                font-weight: 400;
+                font-style: normal;
+                font-display: swap;
+            }
+            @font-face {
+                font-family: 'Hind Siliguri Fixed By Fahim';
+                src: url('/fonts/HindSiliguri-Medium.ttf') format('truetype');
+                font-weight: 500;
+                font-style: normal;
+                font-display: swap;
+            }
+            @font-face {
+                font-family: 'Hind Siliguri Fixed By Fahim';
+                src: url('/fonts/HindSiliguri-SemiBold.ttf') format('truetype');
+                font-weight: 600;
+                font-style: normal;
+                font-display: swap;
+            }
+            @font-face {
+                font-family: 'Hind Siliguri Fixed By Fahim';
+                src: url('/fonts/HindSiliguri-Bold.ttf') format('truetype');
+                font-weight: 700 900;
+                font-style: normal;
+                font-display: swap;
+            }
+        </style>
+
+        <!-- Google Fonts (Noto Serif Bengali for Design 4 only) -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700;900&display=swap" rel="stylesheet">

@@ -41,7 +41,7 @@
             <div class="space-y-4">
               <div>
                 <label class="block text-[11px] font-bold text-red-500 uppercase">হেডলাইন (লাল লেখা - লাইন ১)</label>
-                <input v-model="cardData.redText" type="text" maxlength="45"
+                <input v-model="cardData.redText" type="text" maxlength="120"
                   @input="onRedTextInput"
                   :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isRedTextFull}"
                   placeholder="যেমন: শিরায় শিরায় রক্ত"
@@ -53,7 +53,7 @@
 
               <div>
                 <label class="block text-[11px] font-bold text-gray-600 uppercase">সাব-টাইটেল (কালো লেখা - লাইন ২)</label>
-                <input v-model="cardData.blackText" type="text" maxlength="45"
+                <input v-model="cardData.blackText" type="text" maxlength="120"
                   @input="onBlackTextInput"
                   :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isBlackTextFull}"
                   placeholder="যেমন: আমি ইন্ট্রোডারের ভক্ত"
@@ -97,10 +97,12 @@
                 </div>
 
                 <div class="flex-1 bg-white pt-13 px-6 text-center flex flex-col justify-start items-center overflow-hidden">
-                  <h2 class="text-[#e21a1a] text-[36px] font-bold leading-tight tracking-normal whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full z-20">
+                  <h2 class="text-[#e21a1a] font-bold leading-tight tracking-normal whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full z-20"
+                      :style="{ fontSize: redTextFontSize + 'px' }">
                     {{ cardData.redText }}
                   </h2>
-                  <h3 class="text-gray-900 text-[36px] font-black leading-tight mt-2 tracking-normal whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full z-20">
+                  <h3 class="text-gray-900 font-black leading-tight mt-2 tracking-normal whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full z-20"
+                      :style="{ fontSize: blackTextFontSize + 'px' }">
                     {{ cardData.blackText }}
                   </h3>
                 </div>
@@ -135,7 +137,7 @@
 import html2canvas from 'html2canvas-pro';
 import defaultLogo from '../../../../assets/logo.png';
 import defaultPhoto from '../../../../assets/mir_asrafali.jpg';
-import { fitTextToWidth, isTextFull } from '../../../../utils/textLimiter.js';
+import { calculateAutoFontSize, fitTextAtMinSize, isTextFullAtMinSize } from '../../../../utils/textLimiter.js';
 
 function getTodayBanglaDate() {
   const today = new Date();
@@ -172,11 +174,39 @@ export default {
   },
 
   computed: {
+    redTextFontSize() {
+      return calculateAutoFontSize(
+        this.cardData.redText,
+        (sz) => `700 ${sz}px "Hind Siliguri", sans-serif`,
+        36,
+        450,
+        18
+      );
+    },
+    blackTextFontSize() {
+      return calculateAutoFontSize(
+        this.cardData.blackText,
+        (sz) => `900 ${sz}px "Hind Siliguri", sans-serif`,
+        36,
+        450,
+        18
+      );
+    },
     isRedTextFull() {
-      return isTextFull(this.cardData.redText, '700 36px "Hind Siliguri", sans-serif', 440);
+      return isTextFullAtMinSize(
+        this.cardData.redText,
+        (sz) => `700 ${sz}px "Hind Siliguri", sans-serif`,
+        18,
+        450
+      );
     },
     isBlackTextFull() {
-      return isTextFull(this.cardData.blackText, '900 36px "Hind Siliguri", sans-serif', 440);
+      return isTextFullAtMinSize(
+        this.cardData.blackText,
+        (sz) => `900 ${sz}px "Hind Siliguri", sans-serif`,
+        18,
+        450
+      );
     },
     scalerStyle() {
       return {
@@ -218,11 +248,21 @@ export default {
   // ফাংশনসমূহ (Methods)
   methods: {
     onRedTextInput() {
-      this.cardData.redText = fitTextToWidth(this.cardData.redText, '700 36px "Hind Siliguri", sans-serif', 440);
+      this.cardData.redText = fitTextAtMinSize(
+        this.cardData.redText,
+        (sz) => `700 ${sz}px "Hind Siliguri", sans-serif`,
+        18,
+        450
+      );
     },
 
     onBlackTextInput() {
-      this.cardData.blackText = fitTextToWidth(this.cardData.blackText, '900 36px "Hind Siliguri", sans-serif', 440);
+      this.cardData.blackText = fitTextAtMinSize(
+        this.cardData.blackText,
+        (sz) => `900 ${sz}px "Hind Siliguri", sans-serif`,
+        18,
+        450
+      );
     },
 
     updateScale() {

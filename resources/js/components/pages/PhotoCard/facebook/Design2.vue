@@ -34,7 +34,7 @@
             <div class="space-y-4">
               <div>
                 <label class="block text-[11px] font-bold text-red-500 uppercase">হেডলাইন (সাদা লেখা - লাইন ১)</label>
-                <input v-model="cardData.headline" type="text" maxlength="60"
+                <input v-model="cardData.headline" type="text" maxlength="120"
                   @input="onHeadlineInput"
                   :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isHeadlineFull}"
                   placeholder="যেমন: তুমি কে আমি কে, ইন্ট্রোডার ইন্ট্রোডার"
@@ -46,7 +46,7 @@
 
               <div>
                 <label class="block text-[11px] font-bold text-yellow-600 uppercase tracking-wider">সাব-টাইটেল (হলুদ লেখা - লাইন ২)</label>
-                <input v-model="cardData.subHeadline" type="text" maxlength="60"
+                <input v-model="cardData.subHeadline" type="text" maxlength="120"
                   @input="onSubHeadlineInput"
                   :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isSubHeadlineFull}"
                   placeholder="যেমন: নিয়েছি তো ইন্ট্রো, আরও নেব আউটট্রো"
@@ -112,10 +112,12 @@
                 <div class="flex-1 background-gradient relative flex flex-col items-center justify-start pt-8 px-8 text-center">
                   
                   <!-- headline and sub-headline -->
-                  <h2 class="text-white text-[28px] font-bold leading-tight mb-1 drop-shadow-md whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full">
+                  <h2 class="text-white font-bold leading-tight mb-1 drop-shadow-md whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full z-20"
+                      :style="{ fontSize: headlineFontSize + 'px' }">
                     {{ cardData.headline }}
                   </h2>
-                  <h3 class="text-yellow-400 text-[28px] font-black leading-tight drop-shadow-md whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full">
+                  <h3 class="text-yellow-400 font-black leading-tight drop-shadow-md whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full z-20"
+                      :style="{ fontSize: subHeadlineFontSize + 'px' }">
                     {{ cardData.subHeadline }}
                   </h3>
 
@@ -180,7 +182,7 @@
 <script>
 import html2canvas from 'html2canvas-pro';
 import defaultLogo from '../../../../assets/logo.png';
-import { fitTextToWidth, isTextFull } from '../../../../utils/textLimiter.js';
+import { calculateAutoFontSize, fitTextAtMinSize, isTextFullAtMinSize } from '../../../../utils/textLimiter.js';
 
 function getTodayBanglaDate() {
   const today = new Date();
@@ -217,11 +219,39 @@ export default {
   },
 
   computed: {
+    headlineFontSize() {
+      return calculateAutoFontSize(
+        this.cardData.headline,
+        (sz) => `700 ${sz}px "Hind Siliguri", sans-serif`,
+        28,
+        436,
+        16
+      );
+    },
+    subHeadlineFontSize() {
+      return calculateAutoFontSize(
+        this.cardData.subHeadline,
+        (sz) => `900 ${sz}px "Hind Siliguri", sans-serif`,
+        28,
+        436,
+        16
+      );
+    },
     isHeadlineFull() {
-      return isTextFull(this.cardData.headline, '700 28px "Hind Siliguri", sans-serif', 425);
+      return isTextFullAtMinSize(
+        this.cardData.headline,
+        (sz) => `700 ${sz}px "Hind Siliguri", sans-serif`,
+        16,
+        436
+      );
     },
     isSubHeadlineFull() {
-      return isTextFull(this.cardData.subHeadline, '900 24px "Hind Siliguri", sans-serif', 425);
+      return isTextFullAtMinSize(
+        this.cardData.subHeadline,
+        (sz) => `900 ${sz}px "Hind Siliguri", sans-serif`,
+        16,
+        436
+      );
     },
     scalerStyle() {
       return {
@@ -262,11 +292,21 @@ export default {
 
   methods: {
     onHeadlineInput() {
-      this.cardData.headline = fitTextToWidth(this.cardData.headline, '700 28px "Hind Siliguri", sans-serif', 425);
+      this.cardData.headline = fitTextAtMinSize(
+        this.cardData.headline,
+        (sz) => `700 ${sz}px "Hind Siliguri", sans-serif`,
+        16,
+        436
+      );
     },
 
     onSubHeadlineInput() {
-      this.cardData.subHeadline = fitTextToWidth(this.cardData.subHeadline, '900 24px "Hind Siliguri", sans-serif', 425);
+      this.cardData.subHeadline = fitTextAtMinSize(
+        this.cardData.subHeadline,
+        (sz) => `900 ${sz}px "Hind Siliguri", sans-serif`,
+        16,
+        436
+      );
     },
 
     updateScale() {

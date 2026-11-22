@@ -40,7 +40,7 @@
             <!-- হেডলাইন ইনপুট -->
             <div>
               <label class="block text-[11px] font-bold text-red-600 uppercase">হেডলাইন (লাইন ১)</label>
-              <input v-model="cardData.headline" type="text" maxlength="60"
+              <input v-model="cardData.headline" type="text" maxlength="120"
                 placeholder="যেমন: আমার সোনার বাংলা"
                 @input="onHeadlineInput"
                 :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isHeadlineFull}"
@@ -53,7 +53,7 @@
             <!-- সাব-টাইটেল ইনপুট -->
             <div>
               <label class="block text-[11px] font-bold text-gray-600 uppercase">সাব-টাইটেল (লাইন ২)</label>
-              <input v-model="cardData.subHeadline" type="text" maxlength="60"
+              <input v-model="cardData.subHeadline" type="text" maxlength="120"
                 placeholder="যেমন: আমি ইন্ট্রোডারকে ভালোবাসি"
                 @input="onSubHeadlineInput"
                 :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isSubHeadlineFull}"
@@ -137,10 +137,12 @@
 
                   <!-- হেডলাইন ও সাব-টাইটেল -->
                   <div class="relative z-10 w-full flex flex-col items-center justify-center">
-                    <h2 class="text-white text-[28px] font-bold leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] font-['Noto_Serif_Bengali'] whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full text-center">
+                    <h2 class="text-white font-bold leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] font-['Noto_Serif_Bengali'] whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full text-center z-20"
+                        :style="{ fontSize: headlineFontSize + 'px' }">
                       {{ cardData.headline }}
                     </h2>
-                    <h3 class="text-white text-[28px] font-bold leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] font-['Noto_Serif_Bengali'] mt-1.5 whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full text-center">
+                    <h3 class="text-white font-bold leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] font-['Noto_Serif_Bengali'] mt-1.5 whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full text-center z-20"
+                        :style="{ fontSize: subHeadlineFontSize + 'px' }">
                       {{ cardData.subHeadline }}
                     </h3>
                   </div>
@@ -211,7 +213,7 @@ import html2canvas from 'html2canvas-pro';
 import defaultPhoto from '../../../../assets/paharpur.jpg';
 import defaultLogo from '../../../../assets/logo.png';
 import mapPng from '../../../../assets/world-dotted-map.png';
-import { fitTextToWidth, isTextFull } from '../../../../utils/textLimiter.js';
+import { calculateAutoFontSize, fitTextAtMinSize, isTextFullAtMinSize } from '../../../../utils/textLimiter.js';
 
 export default {
   name: 'PhotoCardDesign4',
@@ -233,11 +235,39 @@ export default {
   },
 
   computed: {
+    headlineFontSize() {
+      return calculateAutoFontSize(
+        this.cardData.headline,
+        (sz) => `700 ${sz}px "Noto Serif Bengali", serif`,
+        28,
+        440,
+        16
+      );
+    },
+    subHeadlineFontSize() {
+      return calculateAutoFontSize(
+        this.cardData.subHeadline,
+        (sz) => `700 ${sz}px "Noto Serif Bengali", serif`,
+        28,
+        440,
+        16
+      );
+    },
     isHeadlineFull() {
-      return isTextFull(this.cardData.headline, '700 28px "Noto Serif Bengali", serif', 440);
+      return isTextFullAtMinSize(
+        this.cardData.headline,
+        (sz) => `700 ${sz}px "Noto Serif Bengali", serif`,
+        16,
+        440
+      );
     },
     isSubHeadlineFull() {
-      return isTextFull(this.cardData.subHeadline, '700 28px "Noto Serif Bengali", serif', 440);
+      return isTextFullAtMinSize(
+        this.cardData.subHeadline,
+        (sz) => `700 ${sz}px "Noto Serif Bengali", serif`,
+        16,
+        440
+      );
     },
     scalerStyle() {
       return {
@@ -277,11 +307,21 @@ export default {
 
   methods: {
     onHeadlineInput() {
-      this.cardData.headline = fitTextToWidth(this.cardData.headline, '700 28px "Noto Serif Bengali", serif', 440);
+      this.cardData.headline = fitTextAtMinSize(
+        this.cardData.headline,
+        (sz) => `700 ${sz}px "Noto Serif Bengali", serif`,
+        16,
+        440
+      );
     },
 
     onSubHeadlineInput() {
-      this.cardData.subHeadline = fitTextToWidth(this.cardData.subHeadline, '700 28px "Noto Serif Bengali", serif', 440);
+      this.cardData.subHeadline = fitTextAtMinSize(
+        this.cardData.subHeadline,
+        (sz) => `700 ${sz}px "Noto Serif Bengali", serif`,
+        16,
+        440
+      );
     },
 
     updateScale() {

@@ -40,7 +40,7 @@
             <!-- হেডলাইন (লাল পিল বক্স) -->
             <div>
               <label class="block text-[11px] font-bold text-red-600 uppercase">টপিক / শিরোনাম (লাল বক্সের লেখা)</label>
-              <input v-model="cardData.headline" type="text" maxlength="40"
+              <input v-model="cardData.headline" type="text" maxlength="80"
                 placeholder="যেমন: প্রেস ব্রিফিংয়ে লিটন:"
                 @input="onHeadlineInput"
                 :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isHeadlineFull}"
@@ -53,7 +53,7 @@
             <!-- মূল বিবরণী লাইন ১ -->
             <div>
               <label class="block text-[11px] font-bold text-gray-600 uppercase">মূল বিবরণী (বক্সের ভেতরের লেখা - লাইন ১)</label>
-              <input v-model="cardData.bodyLine1" type="text" maxlength="70"
+              <input v-model="cardData.bodyLine1" type="text" maxlength="120"
                 placeholder="যেমন: টাইগারদের ব্যর্থতার পেছনে দায়ী লিটন"
                 @input="onBodyLine1Input"
                 :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isBodyLine1Full}"
@@ -66,7 +66,7 @@
             <!-- মূল বিবরণী লাইন ২ -->
             <div>
               <label class="block text-[11px] font-bold text-gray-600 uppercase">মূল বিবরণী (বক্সের ভেতরের লেখা - লাইন ২)</label>
-              <input v-model="cardData.bodyLine2" type="text" maxlength="70"
+              <input v-model="cardData.bodyLine2" type="text" maxlength="120"
                 placeholder="যেমন: চাইলেন কঠোর দৃষ্টান্তমূলক শাস্তি।"
                 @input="onBodyLine2Input"
                 :class="{'border-amber-500 bg-amber-50/40 ring-1 ring-amber-500': isBodyLine2Full}"
@@ -144,17 +144,20 @@
                   
                   <!-- ফ্লোটিং রেড পিল (হেডলাইন) -->
                   <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-30">
-                    <span class="bg-[#d61b23] text-white font-bold text-[17px] px-6 py-1.5 rounded-lg shadow-md whitespace-nowrap overflow-hidden text-ellipsis max-w-[420px] font-['Hind_Siliguri'] inline-block tracking-wide">
+                    <span class="bg-[#d61b23] text-white font-bold px-6 py-1.5 rounded-lg shadow-md whitespace-nowrap overflow-hidden text-ellipsis max-w-[420px] font-['Hind_Siliguri'] inline-block tracking-wide"
+                          :style="{ fontSize: headlineFontSize + 'px' }">
                       {{ cardData.headline }}
                     </span>
                   </div>
 
                   <!-- ব্ল্যাক রাউন্ডেড বক্স (মূল টেক্সট) -->
                   <div class="bg-[#0c0c0c]/95 border border-[#d61b23] rounded-2xl pt-8 pb-4 px-6 shadow-2xl text-center backdrop-blur-sm overflow-hidden">
-                    <p class="text-white text-[15px] leading-[1.5] font-medium font-['Hind_Siliguri'] whitespace-nowrap overflow-hidden text-ellipsis tracking-normal">
+                    <p class="text-white leading-[1.5] font-medium font-['Hind_Siliguri'] whitespace-nowrap overflow-hidden text-ellipsis tracking-normal"
+                       :style="{ fontSize: bodyLine1FontSize + 'px' }">
                       {{ cardData.bodyLine1 }}
                     </p>
-                    <p class="text-white text-[15px] leading-[1.5] font-medium font-['Hind_Siliguri'] whitespace-nowrap overflow-hidden text-ellipsis tracking-normal mt-1">
+                    <p class="text-white leading-[1.5] font-medium font-['Hind_Siliguri'] whitespace-nowrap overflow-hidden text-ellipsis tracking-normal mt-1"
+                       :style="{ fontSize: bodyLine2FontSize + 'px' }">
                       {{ cardData.bodyLine2 }}
                     </p>
                   </div>
@@ -218,7 +221,7 @@
 import html2canvas from 'html2canvas-pro';
 import cricketSample from '../../../../assets/cricket.jpg';
 import defaultLogo from '../../../../assets/logo.png';
-import { fitTextToWidth, isTextFull } from '../../../../utils/textLimiter.js';
+import { calculateAutoFontSize, fitTextAtMinSize, isTextFullAtMinSize } from '../../../../utils/textLimiter.js';
 
 export default {
   name: 'PhotoCardDesign5',
@@ -240,14 +243,56 @@ export default {
   },
 
   computed: {
+    headlineFontSize() {
+      return calculateAutoFontSize(
+        this.cardData.headline,
+        (sz) => `700 ${sz}px "Hind Siliguri", sans-serif`,
+        17,
+        380,
+        12
+      );
+    },
+    bodyLine1FontSize() {
+      return calculateAutoFontSize(
+        this.cardData.bodyLine1,
+        (sz) => `500 ${sz}px "Hind Siliguri", sans-serif`,
+        15,
+        405,
+        11
+      );
+    },
+    bodyLine2FontSize() {
+      return calculateAutoFontSize(
+        this.cardData.bodyLine2,
+        (sz) => `500 ${sz}px "Hind Siliguri", sans-serif`,
+        15,
+        405,
+        11
+      );
+    },
     isHeadlineFull() {
-      return isTextFull(this.cardData.headline, '700 17px "Hind Siliguri", sans-serif', 380);
+      return isTextFullAtMinSize(
+        this.cardData.headline,
+        (sz) => `700 ${sz}px "Hind Siliguri", sans-serif`,
+        12,
+        380
+      );
     },
     isBodyLine1Full() {
-      return isTextFull(this.cardData.bodyLine1, '500 15px "Hind Siliguri", sans-serif', 405);
+      return isTextFullAtMinSize(
+        this.cardData.bodyLine1,
+        (sz) => `500 ${sz}px "Hind Siliguri", sans-serif`,
+        11,
+        405
+      );
     },
     isBodyLine2Full() {
-      return isTextFull(this.cardData.bodyLine2, '500 15px "Hind Siliguri", sans-serif', 405);
+      return isTextFullAtMinSize(
+        this.cardData.bodyLine2,
+        (sz) => `500 ${sz}px "Hind Siliguri", sans-serif`,
+        11,
+        405
+      );
     },
     scalerStyle() {
       return {
@@ -287,15 +332,30 @@ export default {
 
   methods: {
     onHeadlineInput() {
-      this.cardData.headline = fitTextToWidth(this.cardData.headline, '700 17px "Hind Siliguri", sans-serif', 380);
+      this.cardData.headline = fitTextAtMinSize(
+        this.cardData.headline,
+        (sz) => `700 ${sz}px "Hind Siliguri", sans-serif`,
+        12,
+        380
+      );
     },
 
     onBodyLine1Input() {
-      this.cardData.bodyLine1 = fitTextToWidth(this.cardData.bodyLine1, '500 15px "Hind Siliguri", sans-serif', 405);
+      this.cardData.bodyLine1 = fitTextAtMinSize(
+        this.cardData.bodyLine1,
+        (sz) => `500 ${sz}px "Hind Siliguri", sans-serif`,
+        11,
+        405
+      );
     },
 
     onBodyLine2Input() {
-      this.cardData.bodyLine2 = fitTextToWidth(this.cardData.bodyLine2, '500 15px "Hind Siliguri", sans-serif', 405);
+      this.cardData.bodyLine2 = fitTextAtMinSize(
+        this.cardData.bodyLine2,
+        (sz) => `500 ${sz}px "Hind Siliguri", sans-serif`,
+        11,
+        405
+      );
     },
 
     updateScale() {

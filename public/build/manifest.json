@@ -1,6 +1,6 @@
 {
-  "_textLimiter-dAHPd1HJ.js": {
-    "file": "assets/textLimiter-dAHPd1HJ.js",
+  "_textLimiter-HNjYlvun.js": {
+    "file": "assets/textLimiter-HNjYlvun.js",
     "name": "textLimiter",
     "assets": [
       "assets/logo-DCvjspLU.png"
@@ -43,7 +43,7 @@
     "src": "public/uploads/image/cards/design-5.png"
   },
   "resources/css/app.css": {
-    "file": "assets/app-DzU8K1ag.css",
+    "file": "assets/app-x9_xRr0k.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -52,7 +52,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-DccZVDSN.js",
+    "file": "assets/app-tZtDqnVF.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -89,7 +89,7 @@
     "src": "resources/js/assets/world-dotted-map.png"
   },
   "resources/js/components/dashboard.vue": {
-    "file": "assets/dashboard-DmYhW8DF.js",
+    "file": "assets/dashboard-DF_6v7fv.js",
     "name": "dashboard",
     "src": "resources/js/components/dashboard.vue",
     "isDynamicEntry": true,
@@ -105,58 +105,58 @@
     ]
   },
   "resources/js/components/pages/PhotoCard/facebook/Design2.vue": {
-    "file": "assets/Design2-BvN0bmZU.js",
+    "file": "assets/Design2-BEprjlcA.js",
     "name": "Design2",
     "src": "resources/js/components/pages/PhotoCard/facebook/Design2.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_textLimiter-dAHPd1HJ.js",
+      "_textLimiter-HNjYlvun.js",
       "resources/js/app.js"
     ],
     "css": [
-      "assets/Design2-Bzm0VJss.css"
+      "assets/Design2-CuXxjNGT.css"
     ]
   },
   "resources/js/components/pages/PhotoCard/facebook/Design_1.vue": {
-    "file": "assets/Design_1-CTXGC6wk.js",
+    "file": "assets/Design_1-DnqM__qM.js",
     "name": "Design_1",
     "src": "resources/js/components/pages/PhotoCard/facebook/Design_1.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_textLimiter-dAHPd1HJ.js",
+      "_textLimiter-HNjYlvun.js",
       "resources/js/app.js"
     ],
     "css": [
-      "assets/Design_1-BeId_hax.css"
+      "assets/Design_1-D6PEAf8t.css"
     ],
     "assets": [
       "assets/mir_asrafali-CgeTLUgX.jpg"
     ]
   },
   "resources/js/components/pages/PhotoCard/facebook/Design_3.vue": {
-    "file": "assets/Design_3-CScBqqtj.js",
+    "file": "assets/Design_3-BtXLO7HW.js",
     "name": "Design_3",
     "src": "resources/js/components/pages/PhotoCard/facebook/Design_3.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_textLimiter-dAHPd1HJ.js",
+      "_textLimiter-HNjYlvun.js",
       "resources/js/app.js"
     ],
     "css": [
-      "assets/Design_3-CBeogMSV.css"
+      "assets/Design_3-Czkgc1IS.css"
     ]
   },
   "resources/js/components/pages/PhotoCard/facebook/Design_4.vue": {
-    "file": "assets/Design_4-CRPtyb47.js",
+    "file": "assets/Design_4-BYwhCtJ6.js",
     "name": "Design_4",
     "src": "resources/js/components/pages/PhotoCard/facebook/Design_4.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_textLimiter-dAHPd1HJ.js",
+      "_textLimiter-HNjYlvun.js",
       "resources/js/app.js"
     ],
     "css": [
-      "assets/Design_4-D6p1q-mc.css"
+      "assets/Design_4-DDn1IA5O.css"
     ],
     "assets": [
       "assets/paharpur-DwZq28Vg.jpg",
@@ -164,16 +164,16 @@
     ]
   },
   "resources/js/components/pages/PhotoCard/facebook/Design_5.vue": {
-    "file": "assets/Design_5-Ck4GRYeO.js",
+    "file": "assets/Design_5-Cb4DaCGe.js",
     "name": "Design_5",
     "src": "resources/js/components/pages/PhotoCard/facebook/Design_5.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_textLimiter-dAHPd1HJ.js",
+      "_textLimiter-HNjYlvun.js",
       "resources/js/app.js"
     ],
     "css": [
-      "assets/Design_5-vyM5fyYU.css"
+      "assets/Design_5-H3QP74q3.css"
     ],
     "assets": [
       "assets/cricket-CMDNz02R.jpg"
