@@ -96,12 +96,12 @@
                   </div>
                 </div>
 
-                <div class="flex-1 bg-white pt-13 px-6 text-center flex flex-col justify-start items-center overflow-hidden">
-                  <h2 class="text-[#e21a1a] font-bold leading-tight tracking-normal whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full z-20"
+                <div class="flex-1 bg-white pt-12 px-6 text-center flex flex-col justify-start items-center overflow-hidden">
+                  <h2 class="text-[#e21a1a] font-bold leading-tight tracking-normal whitespace-nowrap w-full max-w-full z-20"
                       :style="{ fontSize: redTextFontSize + 'px' }">
                     {{ cardData.redText }}
                   </h2>
-                  <h3 class="text-gray-900 font-black leading-tight mt-2 tracking-normal whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full z-20"
+                  <h3 class="text-gray-900 font-black leading-tight mt-1 tracking-normal whitespace-nowrap w-full max-w-full z-20"
                       :style="{ fontSize: blackTextFontSize + 'px' }">
                     {{ cardData.blackText }}
                   </h3>

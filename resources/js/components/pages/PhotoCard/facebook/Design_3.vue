@@ -172,21 +172,21 @@
                 </div>
 
                 <!-- gradient bottom section -->
-                <div class="flex-1 relative flex flex-col items-center justify-start pt-30 px-8 -mt-20 text-center"
+                <div class="flex-1 relative flex flex-col items-center justify-start pt-[116px] px-8 -mt-20 text-center"
                      :style="{ background: `linear-gradient(180deg, ${cardData.colors.topBarBg} 0%, ${cardData.colors.cardBg} 65%, ${cardData.colors.cardBg} 100%)` }">
                   
                   <!-- headline and sub-headline -->
-                  <h2 class="font-bold leading-tight mb-1 drop-shadow-md whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full z-20"
+                  <h2 class="font-bold leading-tight drop-shadow-md whitespace-nowrap w-full max-w-full z-20"
                       :style="{ color: cardData.colors.headline, fontSize: headlineFontSize + 'px' }">
                     {{ cardData.headline }}
                   </h2>
-                  <h3 class="font-black leading-tight drop-shadow-md whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full z-20"
+                  <h3 class="font-black leading-tight mt-1 drop-shadow-md whitespace-nowrap w-full max-w-full z-20"
                       :style="{ color: cardData.colors.subHeadline, fontSize: subHeadlineFontSize + 'px' }">
                     {{ cardData.subHeadline }}
                   </h3>
 
                   <!-- comment button and dots -->
-                  <div class="mt-4 flex items-center gap-3">
+                  <div class="mt-3.5 flex items-center gap-3">
                     <div class="flex gap-1">
                       <div class="w-1.5 h-1.5 rounded-full" :style="{ backgroundColor: cardData.colors.accent }"></div>
                       <div class="w-2.5 h-2.5 rounded-full" :style="{ backgroundColor: cardData.colors.accent }"></div>

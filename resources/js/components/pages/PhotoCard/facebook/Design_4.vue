@@ -137,11 +137,11 @@
 
                   <!-- হেডলাইন ও সাব-টাইটেল -->
                   <div class="relative z-10 w-full flex flex-col items-center justify-center">
-                    <h2 class="text-white font-bold leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] font-['Noto_Serif_Bengali'] whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full text-center z-20"
+                    <h2 class="text-white font-bold leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] font-['Noto_Serif_Bengali'] whitespace-nowrap w-full max-w-full text-center z-20"
                         :style="{ fontSize: headlineFontSize + 'px' }">
                       {{ cardData.headline }}
                     </h2>
-                    <h3 class="text-white font-bold leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] font-['Noto_Serif_Bengali'] mt-1.5 whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full text-center z-20"
+                    <h3 class="text-white font-bold leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] font-['Noto_Serif_Bengali'] mt-1 whitespace-nowrap w-full max-w-full text-center z-20"
                         :style="{ fontSize: subHeadlineFontSize + 'px' }">
                       {{ cardData.subHeadline }}
                     </h3>

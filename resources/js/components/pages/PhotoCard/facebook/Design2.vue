@@ -112,11 +112,11 @@
                 <div class="flex-1 background-gradient relative flex flex-col items-center justify-start pt-8 px-8 text-center">
                   
                   <!-- headline and sub-headline -->
-                  <h2 class="text-white font-bold leading-tight mb-1 drop-shadow-md whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full z-20"
+                  <h2 class="text-white font-bold leading-tight drop-shadow-md whitespace-nowrap w-full max-w-full z-20"
                       :style="{ fontSize: headlineFontSize + 'px' }">
                     {{ cardData.headline }}
                   </h2>
-                  <h3 class="text-yellow-400 font-black leading-tight drop-shadow-md whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full z-20"
+                  <h3 class="text-yellow-400 font-black leading-tight mt-1 drop-shadow-md whitespace-nowrap w-full max-w-full z-20"
                       :style="{ fontSize: subHeadlineFontSize + 'px' }">
                     {{ cardData.subHeadline }}
                   </h3>

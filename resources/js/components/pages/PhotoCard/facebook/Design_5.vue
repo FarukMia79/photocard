@@ -144,7 +144,7 @@
                   
                   <!-- ফ্লোটিং রেড পিল (হেডলাইন) -->
                   <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-30">
-                    <span class="bg-[#d61b23] text-white font-bold px-6 py-1.5 rounded-lg shadow-md whitespace-nowrap overflow-hidden text-ellipsis max-w-[420px] font-['Hind_Siliguri'] inline-block tracking-wide"
+                    <span class="bg-[#d61b23] text-white font-bold px-6 py-1.5 rounded-lg shadow-md whitespace-nowrap max-w-[420px] font-['Hind_Siliguri'] inline-block tracking-wide leading-normal"
                           :style="{ fontSize: headlineFontSize + 'px' }">
                       {{ cardData.headline }}
                     </span>
@@ -152,11 +152,11 @@
 
                   <!-- ব্ল্যাক রাউন্ডেড বক্স (মূল টেক্সট) -->
                   <div class="bg-[#0c0c0c]/95 border border-[#d61b23] rounded-2xl pt-8 pb-4 px-6 shadow-2xl text-center backdrop-blur-sm overflow-hidden">
-                    <p class="text-white leading-[1.5] font-medium font-['Hind_Siliguri'] whitespace-nowrap overflow-hidden text-ellipsis tracking-normal"
+                    <p class="text-white leading-snug font-medium font-['Hind_Siliguri'] whitespace-nowrap tracking-normal"
                        :style="{ fontSize: bodyLine1FontSize + 'px' }">
                       {{ cardData.bodyLine1 }}
                     </p>
-                    <p class="text-white leading-[1.5] font-medium font-['Hind_Siliguri'] whitespace-nowrap overflow-hidden text-ellipsis tracking-normal mt-1"
+                    <p class="text-white leading-snug font-medium font-['Hind_Siliguri'] whitespace-nowrap tracking-normal mt-1"
                        :style="{ fontSize: bodyLine2FontSize + 'px' }">
                       {{ cardData.bodyLine2 }}
                     </p>
